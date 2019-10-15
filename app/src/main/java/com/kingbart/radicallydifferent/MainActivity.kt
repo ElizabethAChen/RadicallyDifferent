@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             ic_logo.startAnimation(AnimationUtils.loadAnimation(this,R.anim.splash_out))
             Handler().postDelayed({
                 ic_logo.visibility = View.GONE
-                startActivity(Intent(this, AppIntro::class.java))
+                //startActivity(Intent(this, AppIntro::class.java))
                 finish()
             },500)
         },1500)

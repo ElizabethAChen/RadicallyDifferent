@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        tools:context=".EntryActivity">
+
+        <TextView
+            android:id="@+id/radical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box"
+            android:text="@string/radical"
+            android:textAlignment="center"
+            android:textSize="100sp"
+            android:tooltipText="@string/tooltipradical"
+            app:layout_constraintBottom_toTopOf="@+id/variant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/strokes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box"
+            android:text="@string/strokes"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            android:tooltipText="@string/tooltipstrokes"
+            app:layout_constraintBottom_toTopOf="@+id/variant2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/traditional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box"
+            android:text="@string/traditional"
+            android:textAlignment="center"
+            android:textSize="75sp"
+            android:tooltipText="@string/tooltiptraditional"
+            app:layout_constraintBottom_toTopOf="@+id/meaning"
+            app:layout_constraintEnd_toStartOf="@+id/variant"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radical"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/variant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box"
+            android:text="@string/variant"
+            android:textAlignment="center"
+            android:textSize="75sp"
+            android:tooltipText="@string/tooltipvariant"
+            app:layout_constraintBottom_toTopOf="@+id/example2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.564" />
+
+        <TextView
+            android:id="@+id/variant2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="92dp"
+            android:background="@drawable/box"
+            android:text="@string/variant2"
+            android:textAlignment="center"
+            android:textSize="75sp"
+            android:tooltipText="@string/tooltipvariant"
+            app:layout_constraintBottom_toTopOf="@+id/example3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/variant"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/meaning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/box"
+            android:text="@string/meaning"
+            android:textAlignment="textStart"
+            android:textSize="25sp"
+            android:tooltipText="@string/tooltipmeaning"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/variant"
+            app:layout_constraintVertical_bias="0.036" />
+
+        <TextView
+            android:id="@+id/mnemonic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box"
+            android:text="@string/mnemonic"
+            android:textAlignment="textStart"
+            android:textSize="25sp"
+            android:tooltipText="@string/tooltipmnemonic"
+            app:layout_constraintBottom_toTopOf="@+id/example2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/meaning"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/example1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box"
+            android:text="@string/example1"
+            android:textAlignment="center"
+            android:textSize="75sp"
+            android:tooltipText="@string/tooltipexample"
+            app:layout_constraintBottom_toTopOf="@+id/note"
+            app:layout_constraintEnd_toStartOf="@+id/example2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/example2"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/example2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box"
+            android:text="@string/example2"
+            android:textSize="75sp"
+            android:tooltipText="@string/tooltipexample"
+            app:layout_constraintBottom_toTopOf="@+id/note"
+            app:layout_constraintEnd_toEndOf="@+id/example3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.978" />
+
+        <TextView
+            android:id="@+id/example3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box"
+            android:text="@string/example3"
+            android:textAlignment="center"
+            android:textSize="75sp"
+            android:tooltipText="@string/tooltipexample"
+            app:layout_constraintBottom_toTopOf="@+id/note"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/example2"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box"
+            android:text="@string/note"
+            android:textAlignment="textStart"
+            android:textSize="25sp"
+            android:tooltipText="@string/tooltipnote"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

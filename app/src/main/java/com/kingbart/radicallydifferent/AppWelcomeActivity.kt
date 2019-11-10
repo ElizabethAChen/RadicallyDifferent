@@ -12,10 +12,17 @@ class AppWelcomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_app_welcome)
 
         var introduction = findViewById(R.id.intro) as TextView
+        var library = findViewById(R.id.library) as TextView
 
         introduction.setOnClickListener{
             val intent = Intent(this, AppIntroActivity::class.java)
             startActivity(intent)
         }
+
+        library.setOnClickListener{
+            val intent = Intent(this, RecyclerViewActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

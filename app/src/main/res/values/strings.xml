@@ -18,4 +18,23 @@
     <string name="intro_part5">Not all words are this simple, but enough are that getting comfortable with beginning Chinese can set up your foundation for intermediate level.</string>
     <string name="intro_part6">Please look up the radical library with 85 different introductory radicals to get you started. Once you’re comfortable there, try some games to see if you’ve gotten the hang of it.</string>
     <string name="intro_part7">Note: we’re going to focus on radicals- hence the app name. I will be supplying you with tips and tricks to learn them and I hope you find them as useful as I did.</string>
+    <string name="radical">%s</string>
+    <string name="strokes">%s</string>
+    <string name="traditional">%s</string>
+    <string name="variant">%s</string>
+    <string name="variant2">%s</string>
+    <string name="meaning">%s</string>
+    <string name="mnemonic">%s</string>
+    <string name="example1">%s</string>
+    <string name="example2">%s</string>
+    <string name="example3">%s</string>
+    <string name="note">%s</string>
+    <string name="tooltipradical">radical</string>
+    <string name="tooltipstrokes">strokes</string>
+    <string name="tooltiptraditional">traditional</string>
+    <string name="tooltipvariant">variant</string>
+    <string name="tooltipmeaning">meaning</string>
+    <string name="tooltipmnemonic">mnemonic</string>
+    <string name="tooltipexample">example</string>
+    <string name="tooltipnote">note</string>
 </resources>

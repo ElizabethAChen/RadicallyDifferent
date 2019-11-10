@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">RadicallyDifferent</string>
+    <string name="welcome">Welcome to Radically Different!</string>
+    <string name="intro">Read the introduction</string>
+    <string name="library">Check out the Library of Radicals</string>
+    <string name="matching">Match radicals to Hanzi</string>
+    <string name="roadmap">Plan an efficient road trip</string>
+    <string name="puzzle">Build a Hanzi puzzle</string>
+    <string name="intro_welcome">Welcome to this interactive instructional of reading Chinese! Thank you for joining me.</string>
+    <string name="intro_part1">This is intended for people that are currently or have previously studied written Chinese. Please consider looking over the radical library and games afterwards. </string>
+    <string name="intro_part2">In 1916 a Swiss linguist, Ferdinand de Saussure said,</string>
+    <string name="quote">“Time changes all things; there is no reason why language should escape this universal law.”</string>
+    <string name="intro_part3">Any introduction to Chinese characters or Hanzi, will explain that the first were pictographs. As time went on, life changed for the people speaking and writing this language. Their ideas and writing changed. Some things that used to make sense written down, no longer do and as Chinese language learners, we need to accept this.</string>
+    <string name="intro_part4">But fear not! Hanzi can actually be very easy for visual learners if you learn to imagine the parts. These parts are known as radicals. If you can learn to break down “complicated” words in any other language, Chinese is no different.</string>\
+    <string name="hanzi_example">女+马=妈</string>
+    <string name="pinyin_example">nv+ma=ma</string>
+    <string name="english_example">The woman whose name sounds like “horse” (ma) is the mother (ma).</string>
+    <string name="intro_part5">Not all words are this simple, but enough are that getting comfortable with beginning Chinese can set up your foundation for intermediate level.</string>
+    <string name="intro_part6">Please look up the radical library with 85 different introductory radicals to get you started. Once you’re comfortable there, try some games to see if you’ve gotten the hang of it.</string>
+    <string name="intro_part7">Note: we’re going to focus on radicals- hence the app name. I will be supplying you with tips and tricks to learn them and I hope you find them as useful as I did.</string>
 </resources>

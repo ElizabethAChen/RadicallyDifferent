@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AppWelcomeActivity"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome"
+            android:textSize="45sp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/intro"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/library"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/library"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/matching"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/matching"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/roadmap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/roadmap"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/puzzle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/puzzle"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

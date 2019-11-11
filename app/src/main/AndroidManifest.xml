@@ -25,7 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AppIntroActivity"></activity>
+        <activity android:name=".AppIntroActivity" />
         <activity android:name=".RecyclerViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +33,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EntryActivity"></activity>
-    </application>
+        <activity android:name=".EntryActivity" />
+        <activity android:name=".MatchingIntroActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MatchingReadMeActivity" />
+        <activity android:name=".MatchingActivity" />
+        <activity android:name=".RoadTripReadMeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RoadTripIntroActivity" />
+        <activity android:name=".RoadTripActivity"></activity>
+    </application>
 </manifest>

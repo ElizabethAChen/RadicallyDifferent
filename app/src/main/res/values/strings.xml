@@ -11,7 +11,7 @@
     <string name="intro_part2">In 1916 a Swiss linguist, Ferdinand de Saussure said,</string>
     <string name="quote">“Time changes all things; there is no reason why language should escape this universal law.”</string>
     <string name="intro_part3">Any introduction to Chinese characters or Hanzi, will explain that the first were pictographs. As time went on, life changed for the people speaking and writing this language. Their ideas and writing changed. Some things that used to make sense written down, no longer do and as Chinese language learners, we need to accept this.</string>
-    <string name="intro_part4">But fear not! Hanzi can actually be very easy for visual learners if you learn to imagine the parts. These parts are known as radicals. If you can learn to break down “complicated” words in any other language, Chinese is no different.</string>\
+    <string name="intro_part4">But fear not! Hanzi can actually be very easy for visual learners if you learn to imagine the parts. These parts are known as radicals. If you can learn to break down “complicated” words in any other language, Chinese is no different.</string>
     <string name="hanzi_example">女+马=妈</string>
     <string name="pinyin_example">nv+ma=ma</string>
     <string name="english_example">The woman whose name sounds like “horse” (ma) is the mother (ma).</string>
@@ -37,4 +37,31 @@
     <string name="tooltipmnemonic">mnemonic</string>
     <string name="tooltipexample">example</string>
     <string name="tooltipnote">note</string>
+    <string name="timer">%s</string>
+    <string name="char1">%s</string>
+    <string name="char2">%s</string>
+    <string name="char3">%s</string>
+    <string name="char4">%s</string>
+    <string name="char5">%s</string>
+    <string name="char6">%s</string>
+    <string name="char7">%s</string>
+    <string name="char8">%s</string>
+    <string name="char9">%s</string>
+    <string name="lose">Try Again!</string>
+    <string name="win">You Win!</string>
+    <string name="radicaltooltip">Match the characters below to this radical</string>
+    <string name="start">Press to Start</string>
+    <string name="settings">Settings and Instructions</string>
+    <string name="read_me_button">Read Me</string>
+    <string name="instructions">Instructions</string>
+    <string name="matching_game_instructions1">This game works best in portrait mode.</string>
+    <string name="matching_game_instructions2">Please set your preferred difficulty level to adjust how much time you would like.</string>
+    <string name="matching_game_instructions3">The radical at the top indicates what you should be looking for.</string>
+    <string name="matching_game_instructions4">There will be six Hanzi with the expected radical, and three without.</string>
+    <string name="tip">Hot tip! Depending on the radical, it may have variants. Double check for those.</string>
+    <string name="roadTrip_instructions1">This game works best in landscape mode.</string>
+    <string name="roadTrip_instructions2">Please set your preferred difficulty level to adjust how much time you would like.</string>
+    <string name="roadTrip_instructions3">Plan an efficient road trip by making the map stops connect together via radicals.</string>
+    <string name="roadTrip_instructions4">The Start and Stop landmarks should give you a hint to what radical should come next. </string>
+    <string name="roadTrip_instructions5">There will be six Hanzi with differing radicals than can be dragged and dropped in at least one acceptable order.</string>
 </resources>

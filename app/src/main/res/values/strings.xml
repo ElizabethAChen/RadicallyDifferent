@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">RadicallyDifferent</string>
     <string name="welcome">Welcome to Radically Different!</string>
-    <string name="intro">Read the introduction</string>
-    <string name="library">Check out the Library of Radicals</string>
-    <string name="matching">Match radicals to Hanzi</string>
-    <string name="roadmap">Plan an efficient road trip</string>
-    <string name="puzzle">Do a Hanzi puzzle</string>
+    <string name="intro">* Read the introduction</string>
+    <string name="library">* Check out the Library of Radicals</string>
+    <string name="matching">* Match radicals to Hanzi</string>
+    <string name="roadmap">* Plan an efficient road trip</string>
+    <string name="puzzle">* Do a Hanzi puzzle</string>
     <string name="intro_welcome">Welcome to this interactive instructional of reading Chinese! Thank you for joining me.</string>
     <string name="intro_part1">This is intended for people that are currently or have previously studied written Chinese. Please consider looking over the radical library and games afterwards. </string>
     <string name="intro_part2">In 1916 Ferdinand de Saussure, a Swiss linguist, said</string>

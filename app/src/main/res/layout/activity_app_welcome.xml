@@ -20,42 +20,52 @@
                 android:layout_height="wrap_content"
                 android:text="@string/welcome"
                 android:textSize="45sp"
-                android:gravity="center"/>
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/intro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/intro"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"/>
 
             <TextView
                 android:id="@+id/library"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/library"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"/>
 
             <TextView
                 android:id="@+id/matching"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/matching"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"/>
 
             <TextView
                 android:id="@+id/roadmap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/roadmap"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"/>
 
             <TextView
                 android:id="@+id/puzzle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/puzzle"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"/>
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

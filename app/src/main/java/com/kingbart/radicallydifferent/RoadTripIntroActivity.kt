@@ -11,9 +11,9 @@ class RoadTripIntroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_road_trip_intro)
 
-        var readMe = findViewById(R.id.read_me_button) as Button
+        var roadTripReadMe = findViewById(R.id.read_me_button) as Button
         var roadTripGameStart = findViewById(R.id.roadTripStartButton) as Button
-        readMe.setOnClickListener{
+        roadTripReadMe.setOnClickListener{
             val intent = Intent(this, RoadTripReadMeActivity::class.java)
             startActivity(intent)
         }

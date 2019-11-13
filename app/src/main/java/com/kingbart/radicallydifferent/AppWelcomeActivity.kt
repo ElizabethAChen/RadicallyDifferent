@@ -11,10 +11,11 @@ class AppWelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_app_welcome)
 
-        var introduction = findViewById(R.id.intro) as TextView
-        var library = findViewById(R.id.library) as TextView
-        var matching = findViewById(R.id.matching) as TextView
-        var roadTrip = findViewById(R.id.roadmap) as TextView
+        var introduction = findViewById<TextView>(R.id.intro)
+        var library = findViewById<TextView>(R.id.library)
+        var matching = findViewById<TextView>(R.id.matching)
+        var roadTrip = findViewById<TextView>(R.id.roadmap)
+        var puzzle = findViewById<TextView>(R.id.puzzle)
 
         introduction.setOnClickListener{
             val intent = Intent(this, AppIntroActivity::class.java)
@@ -36,5 +37,9 @@ class AppWelcomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        puzzle.setOnClickListener{
+            val intent = Intent(this, PuzzleIntroActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

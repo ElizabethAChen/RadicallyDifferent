@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.google.gson.Gson
+import com.kingbart.radicallydifferent.jsonadapters.CharacterEntry
+import com.kingbart.radicallydifferent.jsonadapters.Chinese
 import kotlin.collections.mutableListOf
 
 class MatchingActivity : AppCompatActivity() {
@@ -29,7 +31,7 @@ class MatchingActivity : AppCompatActivity() {
 
     var jsonList:List<CharacterEntry> = ArrayList()
 
-    var easy: Long = 1200000
+    var easy: Long = 120000
     var medium: Long = 60000
     var hard: Long = 30000
 

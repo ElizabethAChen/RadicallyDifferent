@@ -6,6 +6,8 @@ import android.util.Log
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.gson.Gson
+import com.kingbart.radicallydifferent.jsonadapters.Library
+import com.kingbart.radicallydifferent.jsonadapters.RadicalEntry
 
 class EntryActivity : AppCompatActivity() {
     var libraryList:List<RadicalEntry> = ArrayList()

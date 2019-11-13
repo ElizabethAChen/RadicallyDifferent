@@ -10,8 +10,8 @@ class MatchingIntroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_matching_intro)
-        var readMe = findViewById(R.id.read_me_button) as Button
-        var matchingGameStart = findViewById(R.id.matchingStartButton) as Button
+        var readMe = findViewById<Button>(R.id.read_me_button)
+        var matchingGameStart = findViewById<Button>(R.id.matchingStartButton)
 
         readMe.setOnClickListener{
             val intent = Intent(this, MatchingReadMeActivity::class.java)

@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
+import com.kingbart.radicallydifferent.jsonadapters.Library
+import com.kingbart.radicallydifferent.jsonadapters.RadicalEntry
 import kotlinx.android.synthetic.main.activity_recycler_view.*
 
 class RecyclerViewActivity : AppCompatActivity() {

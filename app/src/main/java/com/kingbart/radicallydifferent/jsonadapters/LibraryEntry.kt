@@ -1,4 +1,4 @@
-package com.kingbart.radicallydifferent
+package com.kingbart.radicallydifferent.jsonadapters
 
 import com.google.gson.annotations.SerializedName
 

@@ -5,10 +5,10 @@
     <string name="library">Check out the Library of Radicals</string>
     <string name="matching">Match radicals to Hanzi</string>
     <string name="roadmap">Plan an efficient road trip</string>
-    <string name="puzzle">Build a Hanzi puzzle</string>
+    <string name="puzzle">Do a Hanzi puzzle</string>
     <string name="intro_welcome">Welcome to this interactive instructional of reading Chinese! Thank you for joining me.</string>
     <string name="intro_part1">This is intended for people that are currently or have previously studied written Chinese. Please consider looking over the radical library and games afterwards. </string>
-    <string name="intro_part2">In 1916 a Swiss linguist, Ferdinand de Saussure said,</string>
+    <string name="intro_part2">In 1916 Ferdinand de Saussure, a Swiss linguist, said</string>
     <string name="quote">“Time changes all things; there is no reason why language should escape this universal law.”</string>
     <string name="intro_part3">Any introduction to Chinese characters or Hanzi, will explain that the first were pictographs. As time went on, life changed for the people speaking and writing this language. Their ideas and writing changed. Some things that used to make sense written down, no longer do and as Chinese language learners, we need to accept this.</string>
     <string name="intro_part4">But fear not! Hanzi can actually be very easy for visual learners if you learn to imagine the parts. These parts are known as radicals. If you can learn to break down “complicated” words in any other language, Chinese is no different.</string>
@@ -64,4 +64,17 @@
     <string name="roadTrip_instructions3">Plan an efficient road trip by making the map stops connect together via radicals.</string>
     <string name="roadTrip_instructions4">The Start and Stop landmarks should give you a hint to what radical should come next. </string>
     <string name="roadTrip_instructions5">There will be six Hanzi with differing radicals than can be dragged and dropped in at least one acceptable order.</string>
+    <string name="end">%s</string>
+    <string name="hanzi1">%s</string>
+    <string name="hanzi2">%s</string>
+    <string name="hanzi3">%s</string>
+    <string name="hanzi4">%s</string>
+    <string name="hanzi5">%s</string>
+    <string name="hanzi6">%s</string>
+    <string name="tooltipstart">start here</string>
+    <string name="tooltipend">end here</string>
+    <string name="startButton">Start</string>
+    <string name="endButton">GO!!!</string>
+    <string name="puzzleReadMe">Read Me</string>
+    <string name="puzzleStart">Start</string>
 </resources>

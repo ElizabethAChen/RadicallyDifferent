@@ -6,13 +6,12 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:ignore="ExtraText">
-    tools:context=".RoadTripReadMeActivity" >
-
+    tools:context=".PuzzleReadMeActivity" >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Road Trip"
+        android:text="Puzzle"
         android:textAlignment="center"
         android:paddingBottom="8dp"
         android:paddingTop="8dp"
@@ -30,7 +29,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/roadTrip_instructions1"
+        android:text="@string/matching_game_instructions1"
         android:paddingBottom="8dp"
         android:paddingTop="8dp"
         android:textSize="18sp"/>
@@ -38,7 +37,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/roadTrip_instructions2"
+        android:text="@string/matching_game_instructions2"
         android:paddingBottom="8dp"
         android:paddingTop="8dp"
         android:textSize="18sp"/>
@@ -46,7 +45,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/roadTrip_instructions3"
+        android:text="@string/matching_game_instructions3"
         android:paddingBottom="8dp"
         android:paddingTop="8dp"
         android:textSize="18sp"/>
@@ -54,16 +53,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/roadTrip_instructions4"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp"
-        android:textSize="18sp"/>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/roadTrip_instructions5"
+        android:text="@string/matching_game_instructions4"
         android:paddingBottom="8dp"
         android:paddingTop="8dp"
         android:textSize="18sp"/>

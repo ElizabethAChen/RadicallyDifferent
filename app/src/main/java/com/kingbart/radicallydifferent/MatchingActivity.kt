@@ -64,7 +64,7 @@ class MatchingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_matching_main)
+        setContentView(R.layout.activity_matching)
         radicalView = findViewById(R.id.radical)
         timeLeftTextView = findViewById(R.id.timer)
         startButton =findViewById(R.id.startbutton)

@@ -41,17 +41,17 @@ class RoadTripActivity : AppCompatActivity() {
     lateinit var pRect3 : Rect
     lateinit var pRect4 : Rect
     lateinit var pRect5 : Rect
-    lateinit var pRect6 : Rect
+    lateinit var pRect6 : Rect*/
 
-    lateinit var hRect1 : Rect //used to detect collision
+    /*lateinit var hRect1 : Rect //used to detect collision
     lateinit var hRect2 : Rect
     lateinit var hRect3 : Rect
     lateinit var hRect4 : Rect
     lateinit var hRect5 : Rect
     lateinit var hRect6 : Rect*/
 
-    //var selectedHanzi : Rect? = null
-    //var selectedPitstop : Rect? = null
+    /*var selectedHanzi : Rect? = null
+    var selectedPitstop : Rect? = null*/
 
     //var collision = Rect.intersects(selectedHanzi,selectedPitstop)
 
@@ -91,7 +91,7 @@ class RoadTripActivity : AppCompatActivity() {
 
         startTextView = findViewById(R.id.start)//do not enable drag
         endTextView = findViewById(R.id.end)
-        
+
         pitStop1 = findViewById(R.id.pitstop1)//these are slots for the hanzi to drop into
         pitStop2 = findViewById(R.id.pitstop2)
         pitStop3 = findViewById(R.id.pitstop3)
@@ -99,22 +99,20 @@ class RoadTripActivity : AppCompatActivity() {
         pitStop5 = findViewById(R.id.pitstop5)
         pitStop6 = findViewById(R.id.pitstop6)
 
-        //pRect1 = pitStop1.drawable.bounds
-        //pRect2 = pitStop2.drawable.bounds
-        //pRect3 = pitStop3.drawable.bounds
-        //pRect4 = pitStop4.drawable.bounds
-        //pRect5 = pitStop5.drawable.bounds
-        //pRect6 = pitStop6.drawable.bounds
+        /*pRect1 = pitStop1.drawable.bounds
+        pRect2 = pitStop2.drawable.bounds
+        pRect3 = pitStop3.drawable.bounds
+        pRect4 = pitStop4.drawable.bounds
+        pRect5 = pitStop5.drawable.bounds
+        pRect6 = pitStop6.drawable.bounds*/
 
-        
         //init a rect by creating the 4 parameters
-        //hRect1 = Rect(hanzi1TextView.left, hanzi1TextView.top, hanzi1TextView.bottom, hanzi1TextView.right)
-        //hRect2 = Rect(hanzi2TextView.left, hanzi2TextView.top, hanzi2TextView.bottom, hanzi2TextView.right)
-        //hRect3 = Rect(hanzi3TextView.left, hanzi3TextView.top, hanzi3TextView.bottom, hanzi3TextView.right)
-        //hRect4 = Rect(hanzi4TextView.left, hanzi4TextView.top, hanzi4TextView.bottom, hanzi4TextView.right)
-        //hRect5 = Rect(hanzi5TextView.left, hanzi5TextView.top, hanzi5TextView.bottom, hanzi5TextView.right)
-        //hRect6 = Rect(hanzi6TextView.left, hanzi6TextView.top, hanzi6TextView.bottom, hanzi6TextView.right)
-
+        /*hRect1 = Rect(hanzi1TextView.left, hanzi1TextView.top, hanzi1TextView.bottom, hanzi1TextView.right)
+        hRect2 = Rect(hanzi2TextView.left, hanzi2TextView.top, hanzi2TextView.bottom, hanzi2TextView.right)
+        hRect3 = Rect(hanzi3TextView.left, hanzi3TextView.top, hanzi3TextView.bottom, hanzi3TextView.right)
+        hRect4 = Rect(hanzi4TextView.left, hanzi4TextView.top, hanzi4TextView.bottom, hanzi4TextView.right)
+        hRect5 = Rect(hanzi5TextView.left, hanzi5TextView.top, hanzi5TextView.bottom, hanzi5TextView.right)
+        hRect6 = Rect(hanzi6TextView.left, hanzi6TextView.top, hanzi6TextView.bottom, hanzi6TextView.right)*/
 
         startButton = findViewById(R.id.startButton)
         endButton = findViewById(R.id.endGame)
@@ -134,13 +132,13 @@ class RoadTripActivity : AppCompatActivity() {
         val initialTimeLeft = initialCountDown / 1000
         timeLeftTextView.text = getString(R.string.timer, initialTimeLeft.toString())
 
-        //var hanziAssigner = randomizer(chineseMap)
+        var hanziAssigner = randomizer(chineseMap)
 
         //buttonVisibility(gameStarted) //hides the Hanzi while the timer is off
-        //hanziController(hanziAssigner)
+        hanziController(hanziAssigner)
 
         //allows for a Hanzi to be moved
-        /*val dragListener = View.OnTouchListener(function = { view, motionEvent ->
+        val dragListener = View.OnTouchListener(function = { view, motionEvent ->
             if (motionEvent.action == MotionEvent.ACTION_MOVE) {
                 view.y = motionEvent.rawY - view.height / 2
                 view.x = motionEvent.rawX - view.width / 2
@@ -153,7 +151,7 @@ class RoadTripActivity : AppCompatActivity() {
         hanzi3TextView.setOnTouchListener(dragListener)
         hanzi4TextView.setOnTouchListener(dragListener)
         hanzi5TextView.setOnTouchListener(dragListener)
-        hanzi6TextView.setOnTouchListener(dragListener)*/
+        hanzi6TextView.setOnTouchListener(dragListener)
         
 
         /*createSolutionKey(hanzi1TextView)
@@ -310,14 +308,12 @@ class RoadTripActivity : AppCompatActivity() {
         //create a list of keys to select randomly from
         var keyList = chineseMap.keys.toMutableList()
 
-
-        loop@ while (hanziAssigner.size < 8) {
+        while (hanziAssigner.size < 1){
             var randomHanzi = keyList.shuffled().take(1)[0]//select one random Hanzi
             var values = chineseMap[randomHanzi] as List<String>
 
             var miniRadicalList = values.intersect(totalRadicals)
-            if (miniRadicalList.size < 2) continue@loop //select new random Hanzi
-            else {
+            if (miniRadicalList.size >= 2) {
                 includedRadicalList.addAll(miniRadicalList) // be able to use all of these radicals
                 miniMap[randomHanzi] = values //makes a smaller map to solution check
                 hanziAssigner.add(randomHanzi) //add it to the answers
@@ -325,31 +321,134 @@ class RoadTripActivity : AppCompatActivity() {
                 includedRadicalList = radicalExpander(includedRadicalList)
             }
 
-            while (hanziAssigner.size < 8) {
-                var filteredHanzi = mutableMapOf<String, List<String>>()
-                for (i in includedRadicalList) { //must have at least one value from previous Hanzi
-                    filteredHanzi.putAll(chineseMap.filterValues { it.contains(i) })
-                }
-
-                keyList = filteredHanzi.keys.toMutableList()
-                randomHanzi = keyList.shuffled().take(1)[0]//select one random Hanzi
-                values = chineseMap[randomHanzi] as List<String>
-                miniRadicalList = values.intersect(totalRadicals)
-                while (miniRadicalList.size < 2 && miniRadicalList.isNotEmpty()) {
-                    keyList.remove(randomHanzi)
-                    randomHanzi = keyList.shuffled().take(1)[0]
-                }
-                if (miniRadicalList.size >= 2) {
-                    includedRadicalList.clear()
-                    includedRadicalList.addAll(miniRadicalList)
-                    miniMap[randomHanzi] = values
-                    hanziAssigner.add(randomHanzi)
-                    keyList.remove(randomHanzi)
-                    includedRadicalList = radicalExpander(includedRadicalList)
-                }
-            }
-
         }
+
+        while (hanziAssigner.size < 2){
+            var filteredHanzi = mutableMapOf<String, List<String>>()
+            for (i in includedRadicalList) { //must have at least one value from previous Hanzi
+                filteredHanzi.putAll(chineseMap.filterValues { it.contains(i) })
+            }
+            keyList = filteredHanzi.keys.toMutableList()
+            var randomHanzi = keyList.shuffled().take(1)[0]//select one random Hanzi
+            var values = chineseMap[randomHanzi] as List<String>
+            var miniRadicalList = values.intersect(totalRadicals)
+            if (miniRadicalList.size >= 2) {
+                includedRadicalList.clear()
+                includedRadicalList.addAll(miniRadicalList)
+                miniMap[randomHanzi] = values
+                hanziAssigner.add(randomHanzi)
+                includedRadicalList = radicalExpander(includedRadicalList)
+            }
+        }
+
+        while (hanziAssigner.size < 3){
+            var filteredHanzi = mutableMapOf<String, List<String>>()
+            for (i in includedRadicalList) { //must have at least one value from previous Hanzi
+                filteredHanzi.putAll(chineseMap.filterValues { it.contains(i) })
+            }
+            keyList = filteredHanzi.keys.toMutableList()
+            var randomHanzi = keyList.shuffled().take(1)[0]//select one random Hanzi
+            var values = chineseMap[randomHanzi] as List<String>
+            var miniRadicalList = values.intersect(totalRadicals)
+            if (miniRadicalList.size >= 2) {
+                includedRadicalList.clear()
+                includedRadicalList.addAll(miniRadicalList)
+                miniMap[randomHanzi] = values
+                hanziAssigner.add(randomHanzi)
+                includedRadicalList = radicalExpander(includedRadicalList)
+            }
+        }
+
+        while (hanziAssigner.size < 4){
+            var filteredHanzi = mutableMapOf<String, List<String>>()
+            for (i in includedRadicalList) { //must have at least one value from previous Hanzi
+                filteredHanzi.putAll(chineseMap.filterValues { it.contains(i) })
+            }
+            keyList = filteredHanzi.keys.toMutableList()
+            var randomHanzi = keyList.shuffled().take(1)[0]//select one random Hanzi
+            var values = chineseMap[randomHanzi] as List<String>
+            var miniRadicalList = values.intersect(totalRadicals)
+            if (miniRadicalList.size >= 2) {
+                includedRadicalList.clear()
+                includedRadicalList.addAll(miniRadicalList)
+                miniMap[randomHanzi] = values
+                hanziAssigner.add(randomHanzi)
+                includedRadicalList = radicalExpander(includedRadicalList)
+            }
+        }
+
+        while (hanziAssigner.size < 5){
+            var filteredHanzi = mutableMapOf<String, List<String>>()
+            for (i in includedRadicalList) { //must have at least one value from previous Hanzi
+                filteredHanzi.putAll(chineseMap.filterValues { it.contains(i) })
+            }
+            keyList = filteredHanzi.keys.toMutableList()
+            var randomHanzi = keyList.shuffled().take(1)[0]//select one random Hanzi
+            var values = chineseMap[randomHanzi] as List<String>
+            var miniRadicalList = values.intersect(totalRadicals)
+            if (miniRadicalList.size >= 2) {
+                includedRadicalList.clear()
+                includedRadicalList.addAll(miniRadicalList)
+                miniMap[randomHanzi] = values
+                hanziAssigner.add(randomHanzi)
+                includedRadicalList = radicalExpander(includedRadicalList)
+            }
+        }
+
+        while (hanziAssigner.size < 6){
+            var filteredHanzi = mutableMapOf<String, List<String>>()
+            for (i in includedRadicalList) { //must have at least one value from previous Hanzi
+                filteredHanzi.putAll(chineseMap.filterValues { it.contains(i) })
+            }
+            keyList = filteredHanzi.keys.toMutableList()
+            var randomHanzi = keyList.shuffled().take(1)[0]//select one random Hanzi
+            var values = chineseMap[randomHanzi] as List<String>
+            var miniRadicalList = values.intersect(totalRadicals)
+            if (miniRadicalList.size >= 2) {
+                includedRadicalList.clear()
+                includedRadicalList.addAll(miniRadicalList)
+                miniMap[randomHanzi] = values
+                hanziAssigner.add(randomHanzi)
+                includedRadicalList = radicalExpander(includedRadicalList)
+            }
+        }
+
+        while (hanziAssigner.size < 7){
+            var filteredHanzi = mutableMapOf<String, List<String>>()
+            for (i in includedRadicalList) { //must have at least one value from previous Hanzi
+                filteredHanzi.putAll(chineseMap.filterValues { it.contains(i) })
+            }
+            keyList = filteredHanzi.keys.toMutableList()
+            var randomHanzi = keyList.shuffled().take(1)[0]//select one random Hanzi
+            var values = chineseMap[randomHanzi] as List<String>
+            var miniRadicalList = values.intersect(totalRadicals)
+            if (miniRadicalList.size >= 2) {
+                includedRadicalList.clear()
+                includedRadicalList.addAll(miniRadicalList)
+                miniMap[randomHanzi] = values
+                hanziAssigner.add(randomHanzi)
+                includedRadicalList = radicalExpander(includedRadicalList)
+            }
+        }
+
+        while (hanziAssigner.size < 8){
+            var filteredHanzi = mutableMapOf<String, List<String>>()
+            for (i in includedRadicalList) { //must have at least one value from previous Hanzi
+                filteredHanzi.putAll(chineseMap.filterValues { it.contains(i) })
+            }
+            keyList = filteredHanzi.keys.toMutableList()
+            var randomHanzi = keyList.shuffled().take(1)[0]//select one random Hanzi
+            var values = chineseMap[randomHanzi] as List<String>
+            var miniRadicalList = values.intersect(totalRadicals)
+            if (miniRadicalList.size >= 2) {
+                includedRadicalList.clear()
+                includedRadicalList.addAll(miniRadicalList)
+                miniMap[randomHanzi] = values
+                hanziAssigner.add(randomHanzi)
+                includedRadicalList = radicalExpander(includedRadicalList)
+            }
+        }
+
         return hanziAssigner
     }
 
@@ -357,124 +456,53 @@ class RoadTripActivity : AppCompatActivity() {
         var returnList = arrayListOf<String>()
 
         for (radical in radicals) {
+            returnList.add(radical) //auto add the char
             //if the radical has variations, add the others to check from
-            if (radical == "人") {
-                returnList.add("亻")
-            }
-            if (radical == "亻") {
-                returnList.add("人")
-            }
-            if (radical == "刀") {
-                returnList.add("刂")
-            }
-            if (radical == "刂") {
-                returnList.add("刀")
-            }
-            if (radical == "言") {
-                returnList.add("讠")
-            }
-            if (radical == "讠") {
-                returnList.add("言")
-            }
-            if (radical == "犬") {
-                returnList.add("犭")
-            }
-            if (radical == "犭") {
-                returnList.add("犬")
-            }
-            if (radical == "糸") {
-                returnList.add("纟")
-            }
-            if (radical == "纟") {
-                returnList.add("糸")
-            }
-            if (radical == "食") {
-                returnList.add("饣")
-            }
-            if (radical == "饣") {
-                returnList.add("食")
-            }
-            if (radical == "攵") {
-                returnList.add("攴")
-            }
-            if (radical == "攴") {
-                returnList.add("攵")
-            }
-            if (radical == "心") {
-                returnList.add("忄")
-            }
-            if (radical == "忄") {
-                returnList.add("心")
-            }
-            if (radical == "衣") {
-                returnList.add("衤")
-            }
-            if (radical == "衤") {
-                returnList.add("衣")
-            }
-            if (radical == "示") {
-                returnList.add("礻")
-            }
-            if (radical == "礻") {
-                returnList.add("示")
-            }
-            if (radical == "金") {
-                returnList.add("钅")
-            }
-            if (radical == "钅") {
-                returnList.add("金")
-            }
-            if (radical == "足") {
-                returnList.add("⻊")
-            }
-            if (radical == "⻊") {
-                returnList.add("足")
-            }
-            if (radical == "火") {
-                returnList.add("灬")
-            }
-            if (radical == "灬") {
-                returnList.add("火")
-            }
-            if (radical == "水") {
-                returnList.add("氵")
-                returnList.add("氺")
-            }
-            if (radical == "氵") {
-                returnList.add("水")
-                returnList.add("氺")
-            }
-            if (radical == "氺") {
-                returnList.add("水")
-                returnList.add("氵")
-            }
-            if (radical == "小") {
-                returnList.add("⺌")
-                returnList.add("⺍")
-            }
-            if (radical == "⺌") {
-                returnList.add("小")
-                returnList.add("⺍")
-            }
-            if (radical == "⺍") {
-                returnList.add("小")
-                returnList.add("⺌")
-            }
-            if (radical == "手") {
-                returnList.add("扌")
-                returnList.add("龵")
-            }
-            if (radical == "扌") {
-                returnList.add("手")
-                returnList.add("龵")
-            }
-            if (radical == "龵") {
-                returnList.add("手")
-                returnList.add("扌")
-            }
-            //no variations for radical
-            else {
-                returnList.add(radical)
+            when(radical){
+                "人" -> returnList.add("亻")
+                "亻" -> returnList.add("人")
+                "刀" -> returnList.add("刂")
+                "刂" -> returnList.add("刀")
+                "言" -> returnList.add("讠")
+                "讠" -> returnList.add("言")
+                "犬" -> returnList.add("犭")
+                "犭" -> returnList.add("犬")
+                "糸" -> returnList.add("纟")
+                "纟" -> returnList.add("糸")
+                "食" -> returnList.add("饣")
+                "饣" -> returnList.add("食")
+                "攵" -> returnList.add("攴")
+                "攴" -> returnList.add("攵")
+                "心" -> returnList.add("忄")
+                "忄" -> returnList.add("心")
+                "衣" -> returnList.add("衤")
+                "衤" -> returnList.add("衣")
+                "示" -> returnList.add("礻")
+                "礻" -> returnList.add("示")
+                "金" -> returnList.add("钅")
+                "钅" -> returnList.add("金")
+                "足" -> returnList.add("⻊")
+                "⻊" -> returnList.add("足")
+                "火" -> returnList.add("灬")
+                "灬" -> returnList.add("火")
+                "水" -> {returnList.add("氵")
+                        returnList.add("氺")}
+                "氵" -> {returnList.add("水")
+                        returnList.add("氺")}
+                "氺" -> {returnList.add("水")
+                        returnList.add("氵")}
+                "小" -> {returnList.add("⺌")
+                        returnList.add("⺍")}
+                "⺌" -> {returnList.add("小")
+                        returnList.add("⺍")}
+                "⺍" -> {returnList.add("小")
+                        returnList.add("⺌")}
+                "手" -> {returnList.add("扌")
+                        returnList.add("龵")}
+                "扌" -> {returnList.add("手")
+                        returnList.add("龵")}
+                "龵" -> {returnList.add("手")
+                        returnList.add("扌")}
             }
         }
         return returnList

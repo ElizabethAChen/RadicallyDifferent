@@ -35,9 +35,9 @@ class MatchingActivity : AppCompatActivity() {
     var medium: Long = 60000
     var hard: Long = 30000
 
-    val initialCountDown: Long = easy
+    val initialCountDown: Long = hard
     val countDownInterval: Long = 1000
-    var timeRemaining: Long = easy
+    var timeRemaining: Long = hard
 
     var gameStarted = false
     var gameOverResponse = false //set to lose
@@ -114,7 +114,6 @@ class MatchingActivity : AppCompatActivity() {
     }
 
     private fun solutionChecker(character: String):Boolean{
-
         //sets the value of the selected char to the opposite
         if (character == solutionKey[0]) {
             yesChar1 = !yesChar1

@@ -65,12 +65,6 @@
     <string name="roadTrip_instructions4">The Start and Stop landmarks should give you a hint to what radical should come next. </string>
     <string name="roadTrip_instructions5">There will be six Hanzi with differing radicals than can be dragged and dropped in at least one acceptable order.</string>
     <string name="end">%s</string>
-    <string name="hanzi1">%s</string>
-    <string name="hanzi2">%s</string>
-    <string name="hanzi3">%s</string>
-    <string name="hanzi4">%s</string>
-    <string name="hanzi5">%s</string>
-    <string name="hanzi6">%s</string>
     <string name="tooltipstart">start here</string>
     <string name="tooltipend">end here</string>
     <string name="startButton">Start</string>

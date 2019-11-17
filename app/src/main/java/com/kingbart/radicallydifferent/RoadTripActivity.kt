@@ -12,6 +12,8 @@ import com.kingbart.radicallydifferent.animationactivities.TryAgain
 import com.kingbart.radicallydifferent.animationactivities.YouWin
 import com.kingbart.radicallydifferent.jsonadapters.CharacterEntry
 import com.kingbart.radicallydifferent.jsonadapters.Chinese
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_road_trip.*
 
 class RoadTripActivity : AppCompatActivity() {
@@ -38,7 +40,7 @@ class RoadTripActivity : AppCompatActivity() {
 
     var jsonList: List<CharacterEntry> = ArrayList() //is entire JSON file
     lateinit var chineseMap: MutableMap<String, List<String>> //map of JSON file
-    var solutionKey: MutableList<String> = mutableListOf()
+    var solutionKey = arrayOf(" ", " ", " ", " ", " ", " ", " ", " ")
 
     private val totalRadicals = listOf("人","亻","儿","力","刂","刀","亠","冖","厂","阝","讠","言","又",
         "十","子","几","厶","勹","彳","宀","氵","水","氺","冫","广","口","囗","士","土","犭","犬","艹",
@@ -72,6 +74,161 @@ class RoadTripActivity : AppCompatActivity() {
         chineseMap = mapMaker(jsonList)
 
         startButton.setOnClickListener{ if (!gameStarted) { startGame()} }
+
+        //this creates the ability to have a drop down menu
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, dropDownOptions)
+        arrayAdapter.setDropDownViewResource(R.layout.spinner_text)
+
+        //pitstop1
+        val spinner1 = findViewById<Spinner>(R.id.spinner1)
+        spinner1.adapter = arrayAdapter
+        spinner1.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                pitStop1.text = dropDownOptions[position]
+                when(solutionKey.indexOf(dropDownOptions[position])){
+                    2 -> {spinner2?.setSelection(0)
+                        solutionKey[2] = ""}
+                    3 -> {spinner3?.setSelection(0)
+                        solutionKey[3] = ""}
+                    4 -> {spinner4?.setSelection(0)
+                        solutionKey[4] = ""}
+                    5 -> {spinner5?.setSelection(0)
+                        solutionKey[5] = ""}
+                    6 -> {spinner6?.setSelection(0)
+                        solutionKey[6] = ""}
+                }
+                solutionKey[1] = dropDownOptions[position]
+            }
+        }
+
+        //pitstop2
+        val spinner2 = findViewById<Spinner>(R.id.spinner2)
+        spinner2.adapter = arrayAdapter
+        spinner2.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                pitStop2.text = dropDownOptions[position]
+                when(solutionKey.indexOf(dropDownOptions[position])){
+                    1 -> {spinner1?.setSelection(0)
+                        solutionKey[1] = ""}
+                    3 -> {spinner3?.setSelection(0)
+                        solutionKey[3] = ""}
+                    4 -> {spinner4?.setSelection(0)
+                        solutionKey[4] = ""}
+                    5 -> {spinner5?.setSelection(0)
+                        solutionKey[5] = ""}
+                    6 -> {spinner6?.setSelection(0)
+                        solutionKey[6] = ""}
+                }
+                solutionKey[2] = dropDownOptions[position]
+            }
+        }
+
+        //pitstop3
+        val spinner3 = findViewById<Spinner>(R.id.spinner3)
+        spinner3.adapter = arrayAdapter
+        spinner3.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                pitStop3.text = dropDownOptions[position]
+                when(solutionKey.indexOf(dropDownOptions[position])){
+                    1 -> {spinner1?.setSelection(0)
+                        solutionKey[1] = ""}
+                    2 -> {spinner2?.setSelection(0)
+                        solutionKey[2] = ""}
+                    4 -> {spinner4?.setSelection(0)
+                        solutionKey[4] = ""}
+                    5 -> {spinner5?.setSelection(0)
+                        solutionKey[5] = ""}
+                    6 -> {spinner6?.setSelection(0)
+                        solutionKey[6] = ""}
+                }
+                solutionKey[3] = dropDownOptions[position]
+            }
+        }
+
+        //pitstop4
+        val spinner4 = findViewById<Spinner>(R.id.spinner4)
+        spinner4.adapter = arrayAdapter
+        spinner4.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                pitStop4.text = dropDownOptions[position]
+                when(solutionKey.indexOf(dropDownOptions[position])){
+                    1 -> {spinner1?.setSelection(0)
+                        solutionKey[1] = ""}
+                    2 -> {spinner2?.setSelection(0)
+                        solutionKey[2] = ""}
+                    3 -> {spinner3?.setSelection(0)
+                        solutionKey[3] = ""}
+                    5 -> {spinner5?.setSelection(0)
+                        solutionKey[5] = ""}
+                    6 -> {spinner6?.setSelection(0)
+                        solutionKey[6] = ""}
+                }
+                solutionKey[4] = dropDownOptions[position]
+            }
+        }
+
+        //pitstop5
+        val spinner5 = findViewById<Spinner>(R.id.spinner5)
+        spinner5.adapter = arrayAdapter
+        spinner5.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                pitStop5.text = dropDownOptions[position]
+                when(solutionKey.indexOf(dropDownOptions[position])){
+                    1 -> {spinner1?.setSelection(0)
+                        solutionKey[1] = ""}
+                    2 -> {spinner2?.setSelection(0)
+                        solutionKey[2] = ""}
+                    3 -> {spinner3?.setSelection(0)
+                        solutionKey[3] = ""}
+                    4 -> {spinner4?.setSelection(0)
+                        solutionKey[4] = ""}
+                    6 -> {spinner6?.setSelection(0)
+                        solutionKey[6] = ""}
+                }
+                solutionKey[5] = dropDownOptions[position]
+            }
+
+        }
+
+        //pitstop6
+        val spinner6 = findViewById<Spinner>(R.id.spinner6)
+        spinner6.adapter = arrayAdapter
+        spinner6.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                pitStop6.text = dropDownOptions[position]
+                when(solutionKey.indexOf(dropDownOptions[position])){
+                    1 -> {spinner1?.setSelection(0)
+                        solutionKey[1] = ""}
+                    2 -> {spinner2?.setSelection(0)
+                        solutionKey[2] = ""}
+                    3 -> {spinner3?.setSelection(0)
+                        solutionKey[3] = ""}
+                    4 -> {spinner4?.setSelection(0)
+                        solutionKey[4] = ""}
+                    5 -> {spinner5?.setSelection(0)
+                        solutionKey[5] = ""}
+                }
+                solutionKey[6] = dropDownOptions[position]
+            }
+        }
 
         resetGame()
     }
@@ -143,14 +300,14 @@ class RoadTripActivity : AppCompatActivity() {
 
     private fun checkScore(): Boolean {
         //these all indicate some overlap between the 2 Hanzi
-        solutionKey.add(startTextView.text.toString())
-        solutionKey.add(pitStop1.text.toString())
-        solutionKey.add(pitStop2.text.toString())
-        solutionKey.add(pitStop3.text.toString())
-        solutionKey.add(pitStop4.text.toString())
-        solutionKey.add(pitStop5.text.toString())
-        solutionKey.add(pitStop6.text.toString())
-        solutionKey.add(endTextView.text.toString())
+        solutionKey[0] = startTextView.text.toString()
+        solutionKey[1] = pitStop1.text.toString()
+        solutionKey[2] = pitStop2.text.toString()
+        solutionKey[3] = pitStop3.text.toString()
+        solutionKey[4] = pitStop4.text.toString()
+        solutionKey[5] = pitStop5.text.toString()
+        solutionKey[6] = pitStop6.text.toString()
+        solutionKey[7] = endTextView.text.toString()
 
 
         for (i in 0..6){
@@ -187,24 +344,18 @@ class RoadTripActivity : AppCompatActivity() {
         list.removeAt(6)
 
         list.shuffle()
-        /*dropDownOptions[0] = ""
+        dropDownOptions[0] = ""
         dropDownOptions[1] = list[0]
         dropDownOptions[2] = list[1]
         dropDownOptions[3] = list[2]
         dropDownOptions[4] = list[3]
         dropDownOptions[5] = list[4]
-        dropDownOptions[6] = list[5]*/
-        
-        pitStop1.text = list[0]
-        pitStop2.text = list[1]
-        pitStop3.text = list[2]
-        pitStop4.text = list[3]
-        pitStop5.text = list[4]
-        pitStop6.text = list[5]
+        dropDownOptions[6] = list[5]
     }
 
     private fun buttonVisibility(gameStarted: Boolean) {
         if (gameStarted) {
+
             hideButton(startButton)
         }
     }

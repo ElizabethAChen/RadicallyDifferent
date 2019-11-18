@@ -75,6 +75,18 @@ class RoadTripActivity : AppCompatActivity() {
 
         startButton.setOnClickListener{ if (!gameStarted) { startGame()} }
 
+        resetGame()
+    }
+
+    private fun jsonConverter(): String {
+        val jsonfile = applicationContext.assets.open("chinese_breakdown.json").bufferedReader()
+            .use { it.readText() }
+        Log.e("response", jsonfile)
+
+        return jsonfile
+    }
+
+    private fun makeSpinners(){
         //this creates the ability to have a drop down menu
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, dropDownOptions)
         arrayAdapter.setDropDownViewResource(R.layout.spinner_text)
@@ -160,7 +172,6 @@ class RoadTripActivity : AppCompatActivity() {
         spinner4.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
-
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 pitStop4.text = dropDownOptions[position]
                 when(solutionKey.indexOf(dropDownOptions[position])){
@@ -185,7 +196,6 @@ class RoadTripActivity : AppCompatActivity() {
         spinner5.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
-
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 pitStop5.text = dropDownOptions[position]
                 when(solutionKey.indexOf(dropDownOptions[position])){
@@ -211,7 +221,6 @@ class RoadTripActivity : AppCompatActivity() {
         spinner6.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
-
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 pitStop6.text = dropDownOptions[position]
                 when(solutionKey.indexOf(dropDownOptions[position])){
@@ -229,16 +238,6 @@ class RoadTripActivity : AppCompatActivity() {
                 solutionKey[6] = dropDownOptions[position]
             }
         }
-
-        resetGame()
-    }
-
-    private fun jsonConverter(): String {
-        val jsonfile = applicationContext.assets.open("chinese_breakdown.json").bufferedReader()
-            .use { it.readText() }
-        Log.e("response", jsonfile)
-
-        return jsonfile
     }
 
     private fun mapMaker(list: List<CharacterEntry>): MutableMap<String, List<String>> {
@@ -275,6 +274,8 @@ class RoadTripActivity : AppCompatActivity() {
         buttonVisibility(gameStarted) //hides the Hanzi while the timer is off
         hanziController(hanziAssigner)
 
+        makeSpinners()
+
         countDownTimer = object : CountDownTimer(initialCountDown, countDownInterval) {
             override fun onTick(millisUntilFinished: Long) {
                 timeRemaining = millisUntilFinished
@@ -309,6 +310,13 @@ class RoadTripActivity : AppCompatActivity() {
         solutionKey[6] = pitStop6.text.toString()
         solutionKey[7] = endTextView.text.toString()
 
+
+        for (i in 1..6){ //one answer is missing
+            if (solutionKey[i] == ""){
+                gameOverResponse = false
+                return gameOverResponse
+            }
+        }
 
         for (i in 0..6){
             var part1 = chineseMap[solutionKey[i]]!!.toSet()
@@ -355,9 +363,27 @@ class RoadTripActivity : AppCompatActivity() {
 
     private fun buttonVisibility(gameStarted: Boolean) {
         if (gameStarted) {
-
+            showHide(spinner1)
+            showHide(spinner2)
+            showHide(spinner3)
+            showHide(spinner4)
+            showHide(spinner5)
+            showHide(spinner6)
             hideButton(startButton)
         }
+        else{
+            showHide(spinner1)
+            showHide(spinner2)
+            showHide(spinner3)
+            showHide(spinner4)
+            showHide(spinner5)
+            showHide(spinner6)
+        }
+    }
+
+    private fun showHide(view: View){
+        view.visibility = if (view.visibility == View.VISIBLE) {View.INVISIBLE}
+        else {View.VISIBLE}
     }
 
     private fun hideButton(view: Button) {

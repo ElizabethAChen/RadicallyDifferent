@@ -63,8 +63,8 @@
     <string name="roadTrip_instructions2">Please set your preferred difficulty level to adjust how much time you would like.</string>
     <string name="roadTrip_instructions3">Plan an efficient road trip by making the map stops connect together via radicals.</string>
     <string name="roadTrip_instructions4">The Start and Stop landmarks should give you a hint to what radical should come next. </string>
-    <string name="roadTrip_instructions5">There will be six Hanzi with differing radicals than can be dragged and dropped in at least one acceptable order.</string>
-    <string name="end">%s</string>
+    <string name="roadTrip_instructions5">There will be six Hanzi with differing radicals that can be selected from drop down menus. Pick one each.</string>
+    <string name="roadTrip_instructions6">If you plan successfully, your car will reach its destination. Else, you run out of gas.</string>
     <string name="tooltipstart">start here</string>
     <string name="tooltipend">end here</string>
     <string name="startButton">Start</string>

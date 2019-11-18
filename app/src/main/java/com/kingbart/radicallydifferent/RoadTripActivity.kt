@@ -1,5 +1,6 @@
 package com.kingbart.radicallydifferent
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -31,9 +32,9 @@ class RoadTripActivity : AppCompatActivity() {
     lateinit var timeLeftTextView: TextView
     lateinit var countDownTimer: CountDownTimer
 
-    val initialCountDown: Long = 15000 //make level vars this is 2 mins
+    val initialCountDown: Long = 30000 //make level vars this is 2 mins
     val countDownInterval: Long = 1000
-    var timeRemaining: Long = 15000
+    var timeRemaining: Long = 30000
 
     var gameStarted = false
     var gameOverResponse = false //set to lose

@@ -5,7 +5,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/prototype5"
         android:label="@string/app_name"
         android:roundIcon="@drawable/prototype5"
         android:supportsRtl="true"
@@ -14,30 +14,23 @@
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".AppWelcomeActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".AppIntroActivity" />
         <activity android:name=".RecyclerViewActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".EntryActivity" />
         <activity android:name=".MatchingIntroActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -45,25 +38,19 @@
         <activity android:name=".MatchingActivity" android:screenOrientation="portrait"/>
         <activity android:name=".RoadTripReadMeActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".RoadTripIntroActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".RoadTripActivity" android:screenOrientation="landscape"/>
-        <activity android:name=".animationactivities.YouWin" />
-        <activity android:name=".animationactivities.TryAgain" />
+        <activity android:name=".animationactivities.YouWin" android:screenOrientation="landscape" />
+        <activity android:name=".animationactivities.TryAgain" android:screenOrientation="landscape"/>
         <activity android:name=".PuzzleIntroActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

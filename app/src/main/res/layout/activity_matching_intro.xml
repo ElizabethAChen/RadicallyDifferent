@@ -7,6 +7,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="16dp"
         tools:context=".MatchingIntroActivity">
 
         <TextView
@@ -24,19 +25,36 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="@string/settings"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:paddingBottom="32dp"/>
 
         <Button
             android:id="@+id/read_me_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/read_me_button" />
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/read_me_button" />
+            android:textAlignment="center"
+            android:text="@string/levelSettings"
+            android:textSize="20sp"
+            android:paddingTop="32dp"/>
+
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/matchingStartButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/start" />
+            android:text="@string/start"
+            android:layout_gravity="center"/>
 
 
     </LinearLayout>

@@ -13,7 +13,7 @@
     <string name="intro_part3">Any introduction to Chinese characters or Hanzi, will explain that the first were pictographs. As time went on, life changed for the people speaking and writing this language. Their ideas and writing changed. Some things that used to make sense written down, no longer do and as Chinese language learners, we need to accept this.</string>
     <string name="intro_part4">But fear not! Hanzi can actually be very easy for visual learners if you learn to imagine the parts. These parts are known as radicals. If you can learn to break down “complicated” words in any other language, Chinese is no different.</string>
     <string name="hanzi_example">女+马=妈</string>
-    <string name="pinyin_example">nv+ma=ma</string>
+    <string name="pinyin_example">nü+ma=ma</string>
     <string name="english_example">The woman whose name sounds like “horse” (ma) is the mother (ma).</string>
     <string name="intro_part5">Not all words are this simple, but enough are that getting comfortable with beginning Chinese can set up your foundation for intermediate level.</string>
     <string name="intro_part6">Please look up the radical library with 85 different introductory radicals to get you started. Once you’re comfortable there, try some games to see if you’ve gotten the hang of it.</string>
@@ -71,4 +71,8 @@
     <string name="endButton">GO!!!</string>
     <string name="puzzleReadMe">Read Me</string>
     <string name="puzzleStart">Start</string>
+    <string name="levelSettings">Level Settings</string>
+    <string name="easy">easy</string>
+    <string name="medium">medium</string>
+    <string name="hard">hard</string>
 </resources>

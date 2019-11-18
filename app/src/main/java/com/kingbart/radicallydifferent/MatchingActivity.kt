@@ -31,13 +31,9 @@ class MatchingActivity : AppCompatActivity() {
 
     var jsonList:List<CharacterEntry> = ArrayList()
 
-    var easy: Long = 120000
-    var medium: Long = 60000
-    var hard: Long = 30000
-
-    val initialCountDown: Long = hard
+    var initialCountDown : Long = 30000
+    var timeRemaining : Long = 30000
     val countDownInterval: Long = 1000
-    var timeRemaining: Long = hard
 
     var gameStarted = false
     var gameOverResponse = false //set to lose
@@ -65,6 +61,8 @@ class MatchingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_matching)
+        intent.getIntExtra("time", 1000)
+
         radicalView = findViewById(R.id.radical)
         timeLeftTextView = findViewById(R.id.timer)
         startButton =findViewById(R.id.startbutton)
@@ -83,6 +81,7 @@ class MatchingActivity : AppCompatActivity() {
         val gsonFile = Gson().fromJson(jsonfile, Chinese::class.java)
         jsonList = gsonFile.character_entry
         chineseMap = mapMaker(jsonList)
+
 
         startButton.setOnClickListener{
             if (!gameStarted) { startGame()}

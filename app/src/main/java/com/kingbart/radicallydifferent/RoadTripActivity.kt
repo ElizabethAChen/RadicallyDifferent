@@ -1,6 +1,5 @@
 package com.kingbart.radicallydifferent
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -32,9 +31,9 @@ class RoadTripActivity : AppCompatActivity() {
     lateinit var timeLeftTextView: TextView
     lateinit var countDownTimer: CountDownTimer
 
-    val initialCountDown: Long = 30000 //make level vars this is 2 mins
-    val countDownInterval: Long = 1000
+    var initialCountDown: Long = 30000 //make level vars this is 2 mins
     var timeRemaining: Long = 30000
+    val countDownInterval: Long = 1000
 
     var gameStarted = false
     var gameOverResponse = false //set to lose
@@ -55,6 +54,7 @@ class RoadTripActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_road_trip)
         timeLeftTextView = findViewById(R.id.timer)
+        initialCountDown= intent.getLongExtra("time", 30000)
 
         startTextView = findViewById(R.id.start)//do not enable drag
         endTextView = findViewById(R.id.end)
@@ -342,7 +342,10 @@ class RoadTripActivity : AppCompatActivity() {
             false -> intent = Intent(this, TryAgain::class.java)
         }
 
-        endButton.setOnClickListener { startActivity(intent) }
+        endButton.setOnClickListener {
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun hanziController(list: MutableList<String>) {

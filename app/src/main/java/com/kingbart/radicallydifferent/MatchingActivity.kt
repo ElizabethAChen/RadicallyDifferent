@@ -61,7 +61,6 @@ class MatchingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_matching)
-        intent.getIntExtra("time", 1000)
 
         radicalView = findViewById(R.id.radical)
         timeLeftTextView = findViewById(R.id.timer)
@@ -76,6 +75,7 @@ class MatchingActivity : AppCompatActivity() {
         char7Button = findViewById(R.id.char7)
         char8Button = findViewById(R.id.char8)
         char9Button = findViewById(R.id.char9)
+        initialCountDown = intent.getLongExtra("time", 30000)
 
         val jsonfile = jsonConverter()
         val gsonFile = Gson().fromJson(jsonfile, Chinese::class.java)

@@ -54,7 +54,6 @@ class RoadTripActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_road_trip)
         timeLeftTextView = findViewById(R.id.timer)
-        initialCountDown= intent.getLongExtra("time", 30000)
 
         startTextView = findViewById(R.id.start)//do not enable drag
         endTextView = findViewById(R.id.end)
@@ -68,6 +67,8 @@ class RoadTripActivity : AppCompatActivity() {
 
         startButton = findViewById(R.id.startButton)
         endButton = findViewById(R.id.endGame)
+        initialCountDown= intent.getLongExtra("time", 30000)
+
 
         var jsonfile = jsonConverter()
         val gsonFile = Gson().fromJson(jsonfile, Chinese::class.java)

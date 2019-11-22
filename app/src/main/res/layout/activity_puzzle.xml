@@ -6,4 +6,179 @@
     android:layout_height="match_parent"
     tools:context=".PuzzleActivity">
 
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/hanzi"
+        app:layout_constraintEnd_toStartOf="@+id/radical1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hanzi"
+        android:layout_width="200dp"
+        android:layout_height="260dp"
+        android:background="@drawable/box"
+        android:text="锦"
+        android:textAlignment="center"
+        android:textSize="200sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/radical2"
+        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.503" />
+
+    <TextView
+        android:id="@+id/radical1"
+        android:layout_width="65dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/box"
+        android:text="金"
+        android:textAlignment="center"
+        android:textSize="70sp"
+        app:layout_constraintBottom_toTopOf="@+id/radical2"
+        app:layout_constraintEnd_toStartOf="@+id/radical4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/radical2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.071" />
+
+    <TextView
+        android:id="@+id/radical2"
+        android:layout_width="65dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/box"
+        android:textSize="70sp"
+        android:text="白"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/radical3"
+        android:layout_width="65dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/box"
+        android:textSize="70sp"
+        android:text="巾"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/radical6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/radical2"
+        app:layout_constraintTop_toBottomOf="@+id/radical2"
+        app:layout_constraintVertical_bias="0.857" />
+
+    <TextView
+        android:id="@+id/radical4"
+        android:layout_width="65dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/box"
+        android:textSize="70sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/radical5"
+        app:layout_constraintEnd_toStartOf="@+id/radical7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/radical5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/radical5"
+        android:layout_width="65dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="384dp"
+        android:background="@drawable/box"
+        android:textSize="70sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.036"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/radical6"
+        android:layout_width="65dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/box"
+        android:textSize="70sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/radical9"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/radical5"
+        app:layout_constraintTop_toBottomOf="@+id/radical5"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/radical7"
+        android:layout_width="65dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="64dp"
+        android:background="@drawable/box"
+        android:textSize="70sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/radical8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.114" />
+
+    <TextView
+        android:id="@+id/radical8"
+        android:layout_width="65dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/box"
+        android:textSize="70sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintStart_toEndOf="@+id/hanzi"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.555" />
+
+    <TextView
+        android:id="@+id/radical9"
+        android:layout_width="65dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/box"
+        android:textSize="70sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/radical8"
+        app:layout_constraintTop_toBottomOf="@+id/radical8"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/puzzleStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/radical3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hanzi" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

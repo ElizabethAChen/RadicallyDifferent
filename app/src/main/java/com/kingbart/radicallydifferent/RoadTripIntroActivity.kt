@@ -1,6 +1,8 @@
 package com.kingbart.radicallydifferent
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -10,12 +12,14 @@ import kotlinx.android.synthetic.main.activity_matching_intro.*
 
 class RoadTripIntroActivity : AppCompatActivity() {
 
+    lateinit var sharedPreferences : SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_road_trip_intro)
 
-        var roadTripReadMe = findViewById(R.id.read_me_button) as Button
-        var roadTripGameStart = findViewById(R.id.roadTripStartButton) as Button
+        var roadTripReadMe = findViewById<Button>(R.id.read_me_button)
+        var roadTripGameStart = findViewById<Button>(R.id.roadTripStartButton)
         roadTripReadMe.setOnClickListener{
             val intent = Intent(this, RoadTripReadMeActivity::class.java)
             startActivity(intent)
@@ -24,12 +28,21 @@ class RoadTripIntroActivity : AppCompatActivity() {
         val radioGroup : RadioGroup = findViewById(R.id.radioGroup)
         var level = checkLevel()
 
+        //currently doesn't work because I don't know how to utilize the sharedprefs
+        sharedPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE)
+
+        level = sharedPreferences.getLong("LEVEL", 0)
+
 
         roadTripGameStart.setOnClickListener{
             level = checkLevel()
             val intent = Intent(this, RoadTripActivity::class.java)
             intent.putExtra("time", level)
             startActivity(intent)
+
+            var editor : SharedPreferences.Editor = sharedPreferences.edit()
+            editor.putLong("LEVEL", level)
+            editor.apply()
         }
     }
 

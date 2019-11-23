@@ -2,7 +2,7 @@ package com.kingbart.radicallydifferent.jsonadapters
 
 import com.google.gson.annotations.SerializedName
 
-class Library(
+class Library (
     @SerializedName("RadicalEntry") val radicalEntry: List<RadicalEntry>
 )
 

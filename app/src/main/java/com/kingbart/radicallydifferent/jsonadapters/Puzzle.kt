@@ -3,9 +3,8 @@ package com.kingbart.radicallydifferent.jsonadapters
 import com.google.gson.annotations.SerializedName
 
 data class Puzzle (
-    @SerializedName("puzzle instruction") val puzzle_instructions : List<PuzzleInstruction>
+    @SerializedName("puzzle instructions") val puzzle_instructions : List<PuzzleInstruction>
 )
-
 
 data class PuzzleInstruction (
     @SerializedName("hanzi") val hanzi : String,

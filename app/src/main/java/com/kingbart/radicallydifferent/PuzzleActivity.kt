@@ -53,7 +53,7 @@ class PuzzleActivity : AppCompatActivity() {
         radical8 = findViewById(R.id.radical8)
         radical9 = findViewById(R.id.radical9)
         puzzleStart = findViewById(R.id.puzzleStart)
-
+        timeLeftTextView = findViewById(R.id.timer)
         initialCountDown = intent.getLongExtra("time", 30000)
 
         val jsonfile = jsonConverter()

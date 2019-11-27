@@ -253,15 +253,13 @@ class MatchingActivity : AppCompatActivity() {
     private fun endGame(gameOverResponse: Boolean) {
         if (gameOverResponse) {
             Toast.makeText(this, getString(R.string.win), Toast.LENGTH_LONG).show()
-            resetGame()
         } else {
             var message = getString(R.string.lose)
             message += " " + radicalView.text.toString()
             message += makeCorrections()
-
             Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-            resetGame()
         }
+        resetGame()
     }
 
     private fun makeCorrections() : String{

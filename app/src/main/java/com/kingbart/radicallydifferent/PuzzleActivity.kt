@@ -11,7 +11,6 @@ import android.widget.Toast
 import com.google.gson.Gson
 import com.kingbart.radicallydifferent.jsonadapters.Puzzle
 import com.kingbart.radicallydifferent.jsonadapters.PuzzleInstruction
-import kotlinx.android.synthetic.main.activity_puzzle.*
 
 class PuzzleActivity : AppCompatActivity() {
     lateinit var hanzi: TextView
@@ -109,6 +108,10 @@ class PuzzleActivity : AppCompatActivity() {
         val initialTimeLeft = initialCountDown / 1000
         timeLeftTextView.text = getString(R.string.timer, initialTimeLeft.toString())
 
+        var puzzleAssigner = randomizer(puzzleMap)
+
+        buttonVisibility(gameStarted)
+        puzzleController()
 
         countDownTimer = object : CountDownTimer(initialCountDown, countDownInterval) {
             override fun onTick(millisUntilFinished: Long) {
@@ -194,10 +197,77 @@ class PuzzleActivity : AppCompatActivity() {
     private fun endGame(gameOverResponse: Boolean) {
         if (gameOverResponse) {
             Toast.makeText(this, getString(R.string.win), Toast.LENGTH_LONG).show()
-            resetGame()
         } else {
             Toast.makeText(this, getString(R.string.lose), Toast.LENGTH_LONG).show()
-            resetGame()
         }
+        resetGame()
+    }
+
+    private fun randomizer(puzzleMap: MutableMap<String, List<String>>): MutableList<String>{
+        var hanziCopy = puzzleMap.keys.toMutableList()
+        var randomHanzi = hanziCopy.shuffled().take(1)[0]
+
+        hanzi.text = randomHanzi
+        var instructionList = puzzleMap[randomHanzi]!!
+        for (i in instructionList){
+            if (i =="a"){
+
+            }
+            //include all possible instructions
+
+            else {//is a hanzi
+                radicalFlipper(i)
+                puzzleAssigner.add(i)
+            }
+        }
+
+
+        return puzzleAssigner
+    }
+
+    private fun radicalFlipper(radical : String): String{
+        var flippedRadical = ""
+        when(radical){
+            "人" -> flippedRadical = "亻"
+            "亻" -> flippedRadical = "人"
+            "刀" -> flippedRadical = "刂"
+            "刂" -> flippedRadical = "刀"
+            "言" -> flippedRadical = "讠"
+            "讠" -> flippedRadical = "言"
+            "犬" -> flippedRadical = "犭"
+            "犭" -> flippedRadical = "犬"
+            "糸" -> flippedRadical = "纟"
+            "纟" -> flippedRadical = "糸"
+            "食" -> flippedRadical = "饣"
+            "饣" -> flippedRadical = "食"
+            "攵" -> flippedRadical = "攴"
+            "攴" -> flippedRadical = "攵"
+            "心" -> flippedRadical = "忄"
+            "忄" -> flippedRadical = "心"
+            "衣" -> flippedRadical = "衤"
+            "衤" -> flippedRadical = "衣"
+            "示" -> flippedRadical = "礻"
+            "礻" -> flippedRadical = "示"
+            "金" -> flippedRadical = "钅"
+            "钅" -> flippedRadical = "金"
+            "足" -> flippedRadical = "⻊"
+            "⻊" -> flippedRadical = "足"
+            "火" -> flippedRadical = "灬"
+            "灬" -> flippedRadical = "火"
+            "水" -> flippedRadical = "氵"
+            "氵" -> flippedRadical = "水"
+            "氺" -> flippedRadical = "水"
+            "小" -> flippedRadical = "⺌"
+            "⺌" -> flippedRadical = "小"
+            "⺍" -> flippedRadical = "小"
+            "手" -> flippedRadical = "扌"
+            "扌" -> flippedRadical = "手"
+            "龵" -> flippedRadical = "手"
+            "⺮" -> flippedRadical = "竹"
+            "罒" -> flippedRadical = "网"
+            "艹" -> flippedRadical = "艸"
+            else -> flippedRadical = radical
+        }
+        return flippedRadical
     }
 }

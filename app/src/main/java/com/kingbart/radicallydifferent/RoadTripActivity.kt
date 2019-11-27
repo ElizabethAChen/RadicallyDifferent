@@ -1,6 +1,9 @@
 package com.kingbart.radicallydifferent
 
 import android.content.Intent
+import android.media.Ringtone
+import android.media.RingtoneManager
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -31,9 +34,13 @@ class RoadTripActivity : AppCompatActivity() {
     lateinit var timeLeftTextView: TextView
     lateinit var countDownTimer: CountDownTimer
 
-    var initialCountDown: Long = 30000 //make level vars this is 2 mins
+    var initialCountDown: Long = 30000 //make level vars this is 30 seconds
     var timeRemaining: Long = 30000
     val countDownInterval: Long = 1000
+
+    //plays alarm time's up
+    lateinit var uri : Uri
+    lateinit var ringtone : Ringtone
 
     var gameStarted = false
     var gameOverResponse = false //set to lose
@@ -42,12 +49,12 @@ class RoadTripActivity : AppCompatActivity() {
     lateinit var chineseMap: MutableMap<String, List<String>> //map of JSON file
     var solutionKey = arrayOf(" ", " ", " ", " ", " ", " ", " ", " ")
 
-    private val totalRadicals = listOf("人","亻","儿","力","刂","刀","亠","冖","厂","阝","讠","言","又",
-        "十","子","几","厶","勹","彳","宀","氵","水","氺","冫","广","口","囗","士","土","犭","犬","艹",
-        "纟","糸","辶","门","饣","食","马","女","大","小","⺌","⺍","寸","山","工","巾","干","日","月",
-        "夕","弓","攵","攴","户","戶","木","贝","见","王","车","心","忄","手","扌","龵","火","灬","欠",
-        "斤","止","牛","白","禾","衤","衣","礻","示","目","罒","钅","金","鸟","田","石","疒","立","皿",
-        "虫","竹","米","羊","舌","耳","羽","舟","足","⻊","酉","鱼","隹","雨","青")
+    private val totalRadicals = listOf("人","亻","力","刂","刀","亠","冖","厂","阝","讠","言","子","几",
+        "彳","宀","氵","水","氺","广","囗","士","土","犭","犬", "纟","糸","辶","门","饣","食","马","女",
+        "大","小","寸","山","工","巾","干","日","月","夕","弓","攵","攴","户","戶","木","贝","见","王",
+        "车","心","忄","手","扌","龵","火","灬","欠","斤","止","牛","白","禾","衤","衣","礻","示","目",
+        "罒","钅","金","鸟","田","石","疒","立","皿","虫","竹","米","羊","舌","耳","羽","舟","足","⻊",
+        "酉","鱼","隹","雨","青")
     var dropDownOptions = arrayOf(" ", " ", " ", " ", " ", " ", " ")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -286,6 +293,9 @@ class RoadTripActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
+                uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
+                ringtone = RingtoneManager.getRingtone(getApplicationContext(), uri)
+                ringtone.play()
                 checkScore()
                 endGame(gameOverResponse)
             }
@@ -344,6 +354,7 @@ class RoadTripActivity : AppCompatActivity() {
         }
 
         endButton.setOnClickListener {
+            ringtone.stop()
             startActivity(intent)
             finish()
         }

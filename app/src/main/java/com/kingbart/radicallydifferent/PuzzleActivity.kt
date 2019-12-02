@@ -1,9 +1,13 @@
 package com.kingbart.radicallydifferent
 
+import android.content.ClipData
+import android.content.ClipDescription
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
+import android.view.DragEvent
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -12,7 +16,7 @@ import com.google.gson.Gson
 import com.kingbart.radicallydifferent.jsonadapters.Puzzle
 import com.kingbart.radicallydifferent.jsonadapters.PuzzleInstruction
 
-class PuzzleActivity : AppCompatActivity() {
+class PuzzleActivity : AppCompatActivity(), View.OnTouchListener, View.OnDragListener{
     lateinit var hanzi: TextView
     lateinit var radical1: TextView
     lateinit var radical2: TextView
@@ -27,6 +31,11 @@ class PuzzleActivity : AppCompatActivity() {
     lateinit var timeLeftTextView: TextView
     lateinit var countDownTimer: CountDownTimer
 
+    lateinit var a1 : View
+    lateinit var a2 : View
+    lateinit var d1 : View
+    lateinit var d2 : View
+
     var jsonList:List<PuzzleInstruction> = ArrayList()
 
     var initialCountDown : Long = 30000
@@ -35,12 +44,15 @@ class PuzzleActivity : AppCompatActivity() {
 
     var gameStarted = false
     var gameOverResponse = false //set to lose
+    var testString : String = "" //holds val of puzzle piece
 
     lateinit var puzzleMap: MutableMap<String, List<String>>
+    lateinit var solutionKey: MutableList<String>
+    var checker = mutableListOf<Boolean>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_puzzle)
+        setContentView(R.layout.activity_puzzle_main)
         hanzi = findViewById(R.id.hanzi)
         radical1 = findViewById(R.id.radical1)
         radical2 = findViewById(R.id.radical2)
@@ -51,6 +63,10 @@ class PuzzleActivity : AppCompatActivity() {
         radical7 = findViewById(R.id.radical7)
         radical8 = findViewById(R.id.radical8)
         radical9 = findViewById(R.id.radical9)
+        a1 = findViewById(R.id.acrossFHHW1)
+        a2 = findViewById(R.id.acrossFHHW2)
+        d1 = findViewById(R.id.downFWHH1)
+        d2 = findViewById(R.id.downFWHH2)
         puzzleStart = findViewById(R.id.puzzleStart)
         timeLeftTextView = findViewById(R.id.timer)
         initialCountDown = intent.getLongExtra("time", 30000)
@@ -60,7 +76,7 @@ class PuzzleActivity : AppCompatActivity() {
         jsonList = gsonFile.puzzle_instructions
         puzzleMap = mapMaker(jsonList)
 
-        //startButton.setOnClickListener{ if (!gameStarted) { startGame()} }
+        puzzleStart.setOnClickListener{ if (!gameStarted) { startGame()} }
         resetGame()
     }
 
@@ -107,11 +123,12 @@ class PuzzleActivity : AppCompatActivity() {
         gameOverResponse = false
         val initialTimeLeft = initialCountDown / 1000
         timeLeftTextView.text = getString(R.string.timer, initialTimeLeft.toString())
+        
+        resetVisibility()
+        checker.clear()
 
-        var puzzleAssigner = randomizer(puzzleMap)
-
+        randomizer(puzzleMap)
         buttonVisibility(gameStarted)
-        puzzleController()
 
         countDownTimer = object : CountDownTimer(initialCountDown, countDownInterval) {
             override fun onTick(millisUntilFinished: Long) {
@@ -120,7 +137,7 @@ class PuzzleActivity : AppCompatActivity() {
                 timeLeftTextView.text = getString(R.string.timer, timeLeft.toString())
             }
             override fun onFinish() {
-                //checkScore()
+                checkScore()
                 endGame(gameOverResponse)
             }
         }
@@ -135,20 +152,26 @@ class PuzzleActivity : AppCompatActivity() {
         buttonVisibility(gameStarted)
     }
 
-    private fun puzzleController(list: MutableList<String>){
-        //randomly assigns puzzle piece values so each game is different
-        list.shuffle()
-        radical1.text = list[0]
-        radical2.text = list[1]
-        radical3.text = list[2]
-        radical4.text = list[3]
-        radical5.text = list[4]
-        radical6.text = list[5]
-        radical7.text = list[6]
-        radical8.text = list[7]
-        radical9.text = list[8]
+    private fun resetVisibility() {
+        //set all views to invisible
+        a1.visibility = View.INVISIBLE
+        a2.visibility = View.INVISIBLE
+        d1.visibility = View.INVISIBLE
+        d2.visibility = View.INVISIBLE
+        
+        //set all radicals to visible
+        radical1.visibility = View.VISIBLE
+        radical2.visibility = View.VISIBLE
+        radical3.visibility = View.VISIBLE
+        radical4.visibility = View.VISIBLE
+        radical5.visibility = View.VISIBLE
+        radical6.visibility = View.VISIBLE
+        radical7.visibility = View.VISIBLE
+        radical8.visibility = View.VISIBLE
+        radical9.visibility = View.VISIBLE
     }
-
+    
+    
     private fun buttonVisibility(gameStarted:Boolean){
         if (gameStarted){
             showHide(radical1)
@@ -175,7 +198,7 @@ class PuzzleActivity : AppCompatActivity() {
         }
     }
 
-    private fun showHide(view: TextView){
+    private fun showHide(view: View){
         view.visibility = if (view.visibility == View.VISIBLE) {
             View.INVISIBLE}
         else {
@@ -190,7 +213,14 @@ class PuzzleActivity : AppCompatActivity() {
     }
 
     private fun checkScore(): Boolean {
-        //if(something){ gameOverResponse = true}
+        //all radicals were removed
+        for (i in checker) {
+            if(!i){
+                 gameOverResponse = false
+                return gameOverResponse
+            }
+        }
+        gameOverResponse = true
         return gameOverResponse
     }
     
@@ -203,26 +233,11 @@ class PuzzleActivity : AppCompatActivity() {
         resetGame()
     }
 
-    private fun randomizer(puzzleMap: MutableMap<String, List<String>>): MutableList<String>{
+    private fun randomizer(puzzleMap: MutableMap<String, List<String>>){
         var hanziCopy = puzzleMap.keys.toMutableList()
         var randomHanzi = hanziCopy.shuffled().take(1)[0]
-
-        hanzi.text = randomHanzi
         var instructionList = puzzleMap[randomHanzi]!!
-        for (i in instructionList){
-            if (i =="a"){
-
-            }
-            //include all possible instructions
-
-            else {//is a hanzi
-                radicalFlipper(i)
-                puzzleAssigner.add(i)
-            }
-        }
-
-
-        return puzzleAssigner
+        layoutAssigner(randomHanzi, instructionList)
     }
 
     private fun radicalFlipper(radical : String): String{
@@ -269,5 +284,167 @@ class PuzzleActivity : AppCompatActivity() {
             else -> flippedRadical = radical
         }
         return flippedRadical
+    }
+
+    private fun layoutAssigner(randomHanzi: String, instructions: List<String>){
+        var instructions = instructions.toMutableList()
+        instructions.removeAll(listOf(""))
+        if (instructions[0] == "a" && instructions.size == 3){
+            instructions.removeAt(0) //remove all instruction values
+
+            hanzi.text = randomHanzi
+
+            var replacement  = mutableListOf<String>()
+            for (i in instructions){
+                replacement.add(radicalFlipper(i))
+                checker.add(false)
+            }
+            solutionKey = replacement.toMutableList() //assign values before shuffling
+
+            //make slots visible
+            showHide(a1)
+            showHide(a2)
+
+            //replacement.shuffle()
+            radical1.text = replacement[0]
+            radical2.text = replacement[1]
+
+            a1.setOnDragListener(this)
+            a2.setOnDragListener(this)
+
+            radical1.setOnTouchListener(this)
+            radical2.setOnTouchListener(this)
+        }
+        else if (instructions[0] == "d" && instructions.size == 3){
+            instructions.removeAt(0) //remove all instruction values
+
+            hanzi.text = randomHanzi
+
+            var replacement  = mutableListOf<String>()
+            for (i in instructions){
+                replacement.add(radicalFlipper(i))
+                checker.add(false)
+            }
+            solutionKey = replacement.toMutableList() //assign values before shuffling
+
+            //make slots visible
+            showHide(d1)
+            showHide(d2)
+
+            //replacement.shuffle()
+            radical1.text = replacement[0]
+            radical2.text = replacement[1]
+
+            d1.setOnDragListener(this)
+            d2.setOnDragListener(this)
+
+            radical1.setOnTouchListener(this)
+            radical2.setOnTouchListener(this)
+        }
+        /*else if (list[0] == "a" && list[2] == "d" && list.size == 5){
+            setContentView(R.layout.activity_puzzle_axdxx)
+            hanzi = findViewById(R.id.hanzi)
+            radical1 = findViewById(R.id.radical1)
+            radical2 = findViewById(R.id.radical2)
+            radical3 = findViewById(R.id.radical3)
+            radical4 = findViewById(R.id.radical4)
+            radical5 = findViewById(R.id.radical5)
+            radical6 = findViewById(R.id.radical6)
+            radical7 = findViewById(R.id.radical7)
+            radical8 = findViewById(R.id.radical8)
+            radical9 = findViewById(R.id.radical9)
+            hanzi.text = randomHanzi
+            list.shuffle()
+            for (i in list){ radicalFlipper(i) }
+            radical1.text = list[0]
+            radical2.text = list[1]
+            radical3.text = list[2]
+            var listener = View.OnTouchListener(function = {view, motionEvent ->
+                if (motionEvent.action == MotionEvent.ACTION_MOVE) {
+                    view.y = motionEvent.rawY - view.height/2
+                    view.x = motionEvent.rawX - view.width/2 }
+                true })
+            radical1.setOnTouchListener(listener)
+            radical2.setOnTouchListener(listener)
+            radical3.setOnTouchListener(listener)
+        }
+        else if (list[0] == "d" && list[2] == "a" && list.size == 5){
+            setContentView(R.layout.activity_puzzle_dxaxx)
+            hanzi = findViewById(R.id.hanzi)
+            radical1 = findViewById(R.id.radical1)
+            radical2 = findViewById(R.id.radical2)
+            radical3 = findViewById(R.id.radical3)
+            radical4 = findViewById(R.id.radical4)
+            radical5 = findViewById(R.id.radical5)
+            radical6 = findViewById(R.id.radical6)
+            radical7 = findViewById(R.id.radical7)
+            radical8 = findViewById(R.id.radical8)
+            radical9 = findViewById(R.id.radical9)
+            hanzi.text = randomHanzi
+            list.shuffle()
+            for (i in list){ radicalFlipper(i) }
+            radical1.text = list[0]
+            radical2.text = list[1]
+            radical3.text = list[2]
+            var listener = View.OnTouchListener(function = {view, motionEvent ->
+                if (motionEvent.action == MotionEvent.ACTION_MOVE) {
+                    view.y = motionEvent.rawY - view.height/2
+                    view.x = motionEvent.rawX - view.width/2 }
+                true })
+            radical1.setOnTouchListener(listener)
+            radical2.setOnTouchListener(listener)
+            radical3.setOnTouchListener(listener)
+        }*/
+        else{ //this case isn't currently covered and should therefore be reassigned
+            var hanziCopy = puzzleMap.keys.toMutableList()
+            var randoHanzi = hanziCopy.shuffled().take(1)[0]
+            var instructionList = puzzleMap[randoHanzi]!!
+            layoutAssigner(randoHanzi, instructionList)
+        }
+    }
+
+    override fun onDrag(v: View, event: DragEvent): Boolean {
+        when(event.action){
+            DragEvent.ACTION_DROP -> {
+                if (v == a1 && testString == solutionKey[0]){
+                    showHide(a1)
+                    showHide(radical1)
+                    testString = ""
+                    checker[0] = true
+                }
+                else if (v == a2 && testString == solutionKey[1]){
+                    showHide(a2)
+                    showHide(radical2)
+                    testString = ""
+                    checker[1] = true
+                }
+                else if (v == d1 && testString == solutionKey[0]){
+                    showHide(d1)
+                    showHide(radical1)
+                    testString = ""
+                    checker[0] = true
+                }
+                else if (v == d2 && testString == solutionKey[1]){
+                    showHide(d2)
+                    showHide(radical2)
+                    testString = ""
+                    checker[1] = true
+                }
+            }
+        }
+        return true
+    }
+
+    override fun onTouch(v: View, event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_DOWN){
+            val shadowBuilder = View.DragShadowBuilder(v)
+            testString = (v as TextView).text.toString()
+            val item = ClipData.Item(v.getTag() as CharSequence)
+            val mimeTypes = arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN)
+            val dragData = ClipData(v.getTag().toString(), mimeTypes, item)
+            v.startDragAndDrop(dragData, shadowBuilder, v, 0)
+            return true
+        }
+        return false
     }
 }

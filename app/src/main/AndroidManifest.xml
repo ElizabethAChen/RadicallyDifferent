@@ -14,6 +14,7 @@
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -35,7 +36,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MatchingReadMeActivity" />
-        <activity android:name=".MatchingActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MatchingActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".RoadTripReadMeActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -46,15 +49,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RoadTripActivity" android:screenOrientation="landscape"/>
-        <activity android:name=".animationactivities.YouWin" android:screenOrientation="landscape" />
-        <activity android:name=".animationactivities.TryAgain" android:screenOrientation="landscape"/>
+        <activity
+            android:name=".RoadTripActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".animationactivities.YouWin"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".animationactivities.TryAgain"
+            android:screenOrientation="landscape" />
         <activity android:name=".PuzzleIntroActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PuzzleActivity" android:screenOrientation="landscape"/>
+        <activity
+            android:name=".PuzzleActivity"
+            android:screenOrientation="landscape" />
         <activity android:name=".PuzzleReadMeActivity" />
     </application>
 

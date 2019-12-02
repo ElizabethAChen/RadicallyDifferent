@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PuzzleActivity">
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/hanzi"
+        app:layout_constraintEnd_toStartOf="@+id/radical1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hanzi"
+        android:layout_width="200dp"
+        android:layout_height="260dp"
+        android:background="@drawable/box"
+        android:text="果"
+        android:textAlignment="center"
+        android:textSize="200sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/radical2"
+        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.503" />
+
+    <TextView
+        android:id="@+id/radical1"
+        android:tag="1"
+        android:layout_width="65dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/box"
+        android:textAlignment="center"
+        android:textSize="70sp"
+        app:layout_constraintBottom_toTopOf="@+id/radical2"
+        app:layout_constraintEnd_toStartOf="@+id/radical4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/radical2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.071" />
+
+    <TextView
+        android:id="@+id/radical2"
+        android:tag="2"
+        android:layout_width="65dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/box"
+        android:textAlignment="center"
+        android:textSize="70sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/puzzleStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toBottomOf="@+id/hanzi"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <LinearLayout
+        android:id="@+id/dx1"
+        android:background="@drawable/box"
+        android:layout_width="200dp"
+        android:layout_height="136dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toTopOf="@+id/hanzi"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:id="@+id/dx2"
+        android:orientation="vertical"
+        android:layout_width="199dp"
+        android:layout_height="125dp"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toTopOf="@+id/hanzi"
+        app:layout_constraintVertical_bias="1.0"
+        android:background="@drawable/box" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

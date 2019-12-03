@@ -32,7 +32,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/matching_game_instructions1"
+            android:text="@string/puzzle_instructions1"
             android:paddingBottom="8dp"
             android:paddingTop="8dp"
             android:textSize="18sp"/>
@@ -40,7 +40,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/matching_game_instructions2"
+            android:text="@string/puzzle_instructions2"
             android:paddingBottom="8dp"
             android:paddingTop="8dp"
             android:textSize="18sp"/>
@@ -48,7 +48,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/matching_game_instructions3"
+            android:text="@string/puzzle_instructions3"
             android:paddingBottom="8dp"
             android:paddingTop="8dp"
             android:textSize="18sp"/>
@@ -56,7 +56,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/matching_game_instructions4"
+            android:text="@string/puzzle_instructions4"
             android:paddingBottom="8dp"
             android:paddingTop="8dp"
             android:textSize="18sp"/>
@@ -64,7 +64,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tip"
+            android:text="@string/puzzle_instructions5"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tip2"
             android:paddingBottom="8dp"
             android:paddingTop="8dp"
             android:textSize="18sp"/>

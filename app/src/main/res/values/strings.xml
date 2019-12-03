@@ -65,6 +65,12 @@
     <string name="roadTrip_instructions4">The Start and Stop landmarks should give you a hint to what radical should come next. </string>
     <string name="roadTrip_instructions5">There will be six Hanzi with differing radicals that can be selected from drop down menus. If you select one  Hanzi, it will be removed from other pit stops.</string>
     <string name="roadTrip_instructions6">If you plan successfully, your car will reach its destination. Else, you run out of gas.</string>
+    <string name="puzzle_instructions1">This game works best in landscape mode.</string>
+    <string name="puzzle_instructions2">Please set your preferred difficulty level to adjust how much time you would like.</string>
+    <string name="puzzle_instructions3">On the left, there is a large blank space, that is your canvas</string>
+    <string name="puzzle_instructions4">On the right, radicals that may be used as puzzle pieces.</string>
+    <string name="puzzle_instructions5">Place the radical in its correct position and it will disappear.</string>
+    <string name="tip2">Hot tip! Some radicals will change shape. Also, if there are copies of a radical, it may remove the copy, but that is fine.</string>
     <string name="tooltipstart">start here</string>
     <string name="tooltipend">end here</string>
     <string name="startButton">Start</string>

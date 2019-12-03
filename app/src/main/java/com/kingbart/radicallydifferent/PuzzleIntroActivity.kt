@@ -29,8 +29,11 @@ class PuzzleIntroActivity : AppCompatActivity() {
 
         var level = checkLevel()
         val radioGroup : RadioGroup = findViewById(R.id.radioGroup)
+
         puzzleStart.setOnClickListener{
+            level = checkLevel()
             val intent = Intent(this, PuzzleActivity::class.java)
+            intent.putExtra("time", level)
             startActivity(intent)
         }
     }

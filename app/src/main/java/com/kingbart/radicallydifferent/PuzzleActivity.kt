@@ -33,8 +33,12 @@ class PuzzleActivity : AppCompatActivity(), View.OnTouchListener, View.OnDragLis
 
     lateinit var a1 : View
     lateinit var a2 : View
+    lateinit var a3 : View
+    lateinit var a4 : View
     lateinit var d1 : View
     lateinit var d2 : View
+    lateinit var d3 : View
+    lateinit var d4 : View
 
     var jsonList:List<PuzzleInstruction> = ArrayList()
 
@@ -63,13 +67,19 @@ class PuzzleActivity : AppCompatActivity(), View.OnTouchListener, View.OnDragLis
         radical7 = findViewById(R.id.radical7)
         radical8 = findViewById(R.id.radical8)
         radical9 = findViewById(R.id.radical9)
-        a1 = findViewById(R.id.acrossFHHW1)
-        a2 = findViewById(R.id.acrossFHHW2)
-        d1 = findViewById(R.id.downFWHH1)
-        d2 = findViewById(R.id.downFWHH2)
         puzzleStart = findViewById(R.id.puzzleStart)
         timeLeftTextView = findViewById(R.id.timer)
         initialCountDown = intent.getLongExtra("time", 30000)
+
+        //slots
+        a1 = findViewById(R.id.acrossFHHW1)
+        a2 = findViewById(R.id.acrossFHHW2)
+        a3 = findViewById(R.id.acrossHHHW3)
+        a4 = findViewById(R.id.acrossHHHW4)
+        d1 = findViewById(R.id.downFWHH1)
+        d2 = findViewById(R.id.downFWHH2)
+        d3 = findViewById(R.id.downHHHW3)
+        d4 = findViewById(R.id.downHHHW4)
 
         val jsonfile = jsonConverter()
         val gsonFile = Gson().fromJson(jsonfile, Puzzle::class.java)
@@ -123,12 +133,14 @@ class PuzzleActivity : AppCompatActivity(), View.OnTouchListener, View.OnDragLis
         gameOverResponse = false
         val initialTimeLeft = initialCountDown / 1000
         timeLeftTextView.text = getString(R.string.timer, initialTimeLeft.toString())
-        
-        resetVisibility()
+
+        resetVisibility()//sets slots to empty
+        resetText() //empties text
         checker.clear()
 
         randomizer(puzzleMap)
         buttonVisibility(gameStarted)
+
 
         countDownTimer = object : CountDownTimer(initialCountDown, countDownInterval) {
             override fun onTick(millisUntilFinished: Long) {
@@ -156,8 +168,12 @@ class PuzzleActivity : AppCompatActivity(), View.OnTouchListener, View.OnDragLis
         //set all views to invisible
         a1.visibility = View.INVISIBLE
         a2.visibility = View.INVISIBLE
+        a3.visibility = View.INVISIBLE
+        a4.visibility = View.INVISIBLE
         d1.visibility = View.INVISIBLE
         d2.visibility = View.INVISIBLE
+        d3.visibility = View.INVISIBLE
+        d4.visibility = View.INVISIBLE
         
         //set all radicals to visible
         radical1.visibility = View.VISIBLE
@@ -171,6 +187,17 @@ class PuzzleActivity : AppCompatActivity(), View.OnTouchListener, View.OnDragLis
         radical9.visibility = View.VISIBLE
     }
     
+    private fun resetText(){
+        radical1.text = ""
+        radical2.text = ""
+        radical3.text = ""
+        radical4.text = ""
+        radical5.text = ""
+        radical6.text = ""
+        radical7.text = ""
+        radical8.text = ""
+        radical9.text = ""
+    }
     
     private fun buttonVisibility(gameStarted:Boolean){
         if (gameStarted){
@@ -183,18 +210,37 @@ class PuzzleActivity : AppCompatActivity(), View.OnTouchListener, View.OnDragLis
             showHide(radical7)
             showHide(radical8)
             showHide(radical9)
+
+            if (radical3.text == ""){ radical3.visibility = View.INVISIBLE}
+            if (radical4.text == ""){ radical4.visibility = View.INVISIBLE}
+            if (radical5.text == ""){ radical5.visibility = View.INVISIBLE}
+            if (radical6.text == ""){ radical6.visibility = View.INVISIBLE}
+            if (radical7.text == ""){ radical7.visibility = View.INVISIBLE}
+            if (radical8.text == ""){ radical8.visibility = View.INVISIBLE}
+            if (radical9.text == ""){ radical9.visibility = View.INVISIBLE}
+
             hideStart(puzzleStart)
         }
         else{
-            showHide(radical1) //hides radicals if game not started
-            showHide(radical2)
-            showHide(radical3)
-            showHide(radical4)
-            showHide(radical5)
-            showHide(radical6)
-            showHide(radical7)
-            showHide(radical8)
-            showHide(radical9)
+            //hides radicals if game not started
+            if(radical1.visibility == View.VISIBLE){ showHide(radical1) }
+            else if (radical1.visibility == View.INVISIBLE){  }
+            if(radical2.visibility == View.VISIBLE){ showHide(radical2) }
+            else if(radical2.visibility == View.INVISIBLE){  }
+            if(radical3.visibility == View.VISIBLE){ showHide(radical3) }
+            else if (radical3.visibility == View.INVISIBLE){  }
+            if(radical4.visibility == View.VISIBLE){ showHide(radical4) }
+            else if(radical4.visibility == View.INVISIBLE){ }
+            if(radical5.visibility == View.VISIBLE){ showHide(radical5) }
+            else if(radical5.visibility == View.INVISIBLE){  }
+            if(radical6.visibility == View.VISIBLE){ showHide(radical6) }
+            else if(radical6.visibility == View.INVISIBLE){  }
+            if(radical7.visibility == View.VISIBLE){ showHide(radical7) }
+            else if(radical7.visibility == View.INVISIBLE){  }
+            if(radical8.visibility == View.VISIBLE){ showHide(radical8) }
+            else if(radical8.visibility == View.INVISIBLE){  }
+            if(radical9.visibility == View.VISIBLE){ showHide(radical9) }
+            else if(radical9.visibility == View.INVISIBLE){ }
         }
     }
 
@@ -330,8 +376,7 @@ class PuzzleActivity : AppCompatActivity(), View.OnTouchListener, View.OnDragLis
             //make slots visible
             showHide(d1)
             showHide(d2)
-
-            //replacement.shuffle()
+            
             radical1.text = replacement[0]
             radical2.text = replacement[1]
 
@@ -341,60 +386,72 @@ class PuzzleActivity : AppCompatActivity(), View.OnTouchListener, View.OnDragLis
             radical1.setOnTouchListener(this)
             radical2.setOnTouchListener(this)
         }
-        /*else if (list[0] == "a" && list[2] == "d" && list.size == 5){
-            setContentView(R.layout.activity_puzzle_axdxx)
-            hanzi = findViewById(R.id.hanzi)
-            radical1 = findViewById(R.id.radical1)
-            radical2 = findViewById(R.id.radical2)
-            radical3 = findViewById(R.id.radical3)
-            radical4 = findViewById(R.id.radical4)
-            radical5 = findViewById(R.id.radical5)
-            radical6 = findViewById(R.id.radical6)
-            radical7 = findViewById(R.id.radical7)
-            radical8 = findViewById(R.id.radical8)
-            radical9 = findViewById(R.id.radical9)
+        else if (instructions[0] == "a" && instructions[2] == "d" && instructions.size == 5){
+            instructions.removeAt(2) //remove all instruction values in reverse order
+            instructions.removeAt(0)
+
+
             hanzi.text = randomHanzi
-            list.shuffle()
-            for (i in list){ radicalFlipper(i) }
-            radical1.text = list[0]
-            radical2.text = list[1]
-            radical3.text = list[2]
-            var listener = View.OnTouchListener(function = {view, motionEvent ->
-                if (motionEvent.action == MotionEvent.ACTION_MOVE) {
-                    view.y = motionEvent.rawY - view.height/2
-                    view.x = motionEvent.rawX - view.width/2 }
-                true })
-            radical1.setOnTouchListener(listener)
-            radical2.setOnTouchListener(listener)
-            radical3.setOnTouchListener(listener)
+
+            var replacement  = mutableListOf<String>()
+            for (i in instructions){
+                replacement.add(radicalFlipper(i))
+                checker.add(false)
+            }
+            solutionKey = replacement.toMutableList() //assign values before shuffling
+
+            //make slots visible
+            showHide(a1)
+            showHide(d3)
+            showHide(d4)
+
+            radical1.text = replacement[0]
+            radical2.text = replacement[1]
+            radical3.text = replacement[2]
+
+            //set slots to listen for pieces
+            a1.setOnDragListener(this)
+            d3.setOnDragListener(this)
+            d4.setOnDragListener(this)
+
+            //allow pieces to move
+            radical1.setOnTouchListener(this)
+            radical2.setOnTouchListener(this)
+            radical3.setOnTouchListener(this)
         }
-        else if (list[0] == "d" && list[2] == "a" && list.size == 5){
-            setContentView(R.layout.activity_puzzle_dxaxx)
-            hanzi = findViewById(R.id.hanzi)
-            radical1 = findViewById(R.id.radical1)
-            radical2 = findViewById(R.id.radical2)
-            radical3 = findViewById(R.id.radical3)
-            radical4 = findViewById(R.id.radical4)
-            radical5 = findViewById(R.id.radical5)
-            radical6 = findViewById(R.id.radical6)
-            radical7 = findViewById(R.id.radical7)
-            radical8 = findViewById(R.id.radical8)
-            radical9 = findViewById(R.id.radical9)
+        else if (instructions[0] == "d" && instructions[2] == "a" && instructions.size == 5){
+            instructions.removeAt(2) //remove all instruction values in reverse order
+            instructions.removeAt(0)
+
+
             hanzi.text = randomHanzi
-            list.shuffle()
-            for (i in list){ radicalFlipper(i) }
-            radical1.text = list[0]
-            radical2.text = list[1]
-            radical3.text = list[2]
-            var listener = View.OnTouchListener(function = {view, motionEvent ->
-                if (motionEvent.action == MotionEvent.ACTION_MOVE) {
-                    view.y = motionEvent.rawY - view.height/2
-                    view.x = motionEvent.rawX - view.width/2 }
-                true })
-            radical1.setOnTouchListener(listener)
-            radical2.setOnTouchListener(listener)
-            radical3.setOnTouchListener(listener)
-        }*/
+
+            var replacement  = mutableListOf<String>()
+            for (i in instructions){
+                replacement.add(radicalFlipper(i))
+                checker.add(false)
+            }
+            solutionKey = replacement.toMutableList() //assign values before shuffling
+
+            //make slots visible
+            showHide(d1)
+            showHide(a3)
+            showHide(a4)
+
+            radical1.text = replacement[0]
+            radical2.text = replacement[1]
+            radical3.text = replacement[2]
+
+            //set slots to listen for pieces
+            d1.setOnDragListener(this)
+            a3.setOnDragListener(this)
+            a4.setOnDragListener(this)
+
+            //allow pieces to move
+            radical1.setOnTouchListener(this)
+            radical2.setOnTouchListener(this)
+            radical3.setOnTouchListener(this)
+        }
         else{ //this case isn't currently covered and should therefore be reassigned
             var hanziCopy = puzzleMap.keys.toMutableList()
             var randoHanzi = hanziCopy.shuffled().take(1)[0]
@@ -405,6 +462,7 @@ class PuzzleActivity : AppCompatActivity(), View.OnTouchListener, View.OnDragLis
 
     override fun onDrag(v: View, event: DragEvent): Boolean {
         when(event.action){
+            //allows only the appropriate radical to go in a slot, excluding copies
             DragEvent.ACTION_DROP -> {
                 if (v == a1 && testString == solutionKey[0]){
                     showHide(a1)
@@ -418,6 +476,18 @@ class PuzzleActivity : AppCompatActivity(), View.OnTouchListener, View.OnDragLis
                     testString = ""
                     checker[1] = true
                 }
+                else if (v == a3 && testString == solutionKey[1]){
+                    showHide(a3)
+                    showHide(radical2)
+                    testString = ""
+                    checker[1] = true
+                }
+                else if (v == a4 && testString == solutionKey[2]){
+                    showHide(a4)
+                    showHide(radical3)
+                    testString = ""
+                    checker[2] = true
+                }
                 else if (v == d1 && testString == solutionKey[0]){
                     showHide(d1)
                     showHide(radical1)
@@ -429,6 +499,18 @@ class PuzzleActivity : AppCompatActivity(), View.OnTouchListener, View.OnDragLis
                     showHide(radical2)
                     testString = ""
                     checker[1] = true
+                }
+                else if (v == d3 && testString == solutionKey[1]){
+                    showHide(d3)
+                    showHide(radical2)
+                    testString = ""
+                    checker[1] = true
+                }
+                else if (v == d4 && testString == solutionKey[2]){
+                    showHide(d4)
+                    showHide(radical3)
+                    testString = ""
+                    checker[2] = true
                 }
             }
         }

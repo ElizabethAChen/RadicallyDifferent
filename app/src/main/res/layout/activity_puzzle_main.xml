@@ -11,7 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="30000"
         app:layout_constraintBottom_toTopOf="@+id/hanzi"
         app:layout_constraintEnd_toStartOf="@+id/radical1"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +21,7 @@
         android:layout_width="200dp"
         android:layout_height="260dp"
         android:background="@drawable/box"
-        android:text="花"
+        android:text="鸶"
         android:textAlignment="center"
         android:textSize="200sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -118,7 +117,7 @@
         android:tag = "textview issue"
         android:layout_width="65dp"
         android:layout_height="80dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/box"
         android:textSize="70sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -189,7 +188,249 @@
         app:layout_constraintTop_toBottomOf="@+id/hanzi" />
 
     <LinearLayout
-        android:id="@+id/downFWHH1"
+        android:id="@+id/down2"
+        android:layout_width="200dp"
+        android:layout_height="130dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toTopOf="@+id/hanzi"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <LinearLayout
+        android:id="@+id/down8"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toTopOf="@+id/hanzi"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <LinearLayout
+        android:id="@+id/down9"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toTopOf="@+id/hanzi"
+        app:layout_constraintVertical_bias="0.322" />
+
+    <LinearLayout
+        android:id="@+id/down10"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toTopOf="@+id/hanzi"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:id="@+id/down11"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toTopOf="@+id/hanzi"
+        app:layout_constraintVertical_bias="0.322" />
+
+    <LinearLayout
+        android:id="@+id/down12"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toTopOf="@+id/hanzi"
+        app:layout_constraintVertical_bias="0.48" />
+
+    <LinearLayout
+        android:id="@+id/across6"
+        android:layout_width="66dp"
+        android:layout_height="260dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toBottomOf="@+id/timer"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <LinearLayout
+        android:id="@+id/across9"
+        android:layout_width="70dp"
+        android:layout_height="130dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toBottomOf="@+id/timer"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <LinearLayout
+        android:id="@+id/across10"
+        android:layout_width="70dp"
+        android:layout_height="130dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toBottomOf="@+id/timer"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <LinearLayout
+        android:id="@+id/across11"
+        android:layout_width="66dp"
+        android:layout_height="130dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toBottomOf="@+id/timer"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <LinearLayout
+        android:id="@+id/across12"
+        android:layout_width="66dp"
+        android:layout_height="130dp"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        android:background="@drawable/box"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toBottomOf="@+id/timer"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <LinearLayout
+        android:id="@+id/across7"
+        android:layout_width="66dp"
+        android:layout_height="260dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toBottomOf="@+id/timer"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <LinearLayout
+        android:id="@+id/across8"
+        android:layout_width="70dp"
+        android:layout_height="260dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toBottomOf="@+id/timer"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+
+    <LinearLayout
+        android:id="@+id/down5"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toTopOf="@+id/hanzi"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:id="@+id/across5"
+        android:layout_width="60dp"
+        android:layout_height="160dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toTopOf="@+id/hanzi"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <LinearLayout
+        android:id="@+id/down6"
+        android:layout_width="140dp"
+        android:layout_height="90dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toTopOf="@+id/hanzi"
+        app:layout_constraintVertical_bias="0.595" />
+
+    <LinearLayout
+        android:id="@+id/down7"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
+        app:layout_constraintEnd_toEndOf="@+id/hanzi"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/hanzi"
+        app:layout_constraintTop_toTopOf="@+id/hanzi"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <LinearLayout
+        android:id="@+id/down1"
         android:layout_width="200dp"
         android:layout_height="130dp"
         android:background="@drawable/box"
@@ -203,7 +444,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
-        android:id="@+id/acrossHHHW3"
+        android:id="@+id/across3"
         android:layout_width="100dp"
         android:layout_height="130dp"
         android:background="@drawable/box"
@@ -217,7 +458,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
-        android:id="@+id/acrossHHHW4"
+        android:id="@+id/across4"
         android:layout_width="100dp"
         android:layout_height="130dp"
         android:background="@drawable/box"
@@ -231,7 +472,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
-        android:id="@+id/acrossFHHW1"
+        android:id="@+id/across1"
         android:layout_width="100dp"
         android:layout_height="260dp"
         android:background="@drawable/box"
@@ -245,7 +486,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
-        android:id="@+id/downHHHW3"
+        android:id="@+id/down3"
         android:layout_width="100dp"
         android:layout_height="130dp"
         android:background="@drawable/box"
@@ -259,7 +500,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
-        android:id="@+id/downHHHW4"
+        android:id="@+id/down4"
         android:layout_width="100dp"
         android:layout_height="130dp"
         android:background="@drawable/box"
@@ -273,7 +514,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
-        android:id="@+id/acrossFHHW2"
+        android:id="@+id/across2"
         android:layout_width="100dp"
         android:layout_height="260dp"
         android:background="@drawable/box"
@@ -285,19 +526,5 @@
         app:layout_constraintStart_toStartOf="@+id/hanzi"
         app:layout_constraintTop_toTopOf="@+id/hanzi"
         app:layout_constraintVertical_bias="0.0" />
-
-    <LinearLayout
-        android:id="@+id/downFWHH2"
-        android:layout_width="200dp"
-        android:layout_height="130dp"
-        android:background="@drawable/box"
-        android:orientation="vertical"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/hanzi"
-        app:layout_constraintEnd_toEndOf="@+id/hanzi"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/hanzi"
-        app:layout_constraintTop_toTopOf="@+id/hanzi"
-        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

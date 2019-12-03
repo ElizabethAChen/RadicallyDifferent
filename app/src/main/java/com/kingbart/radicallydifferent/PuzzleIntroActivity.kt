@@ -46,9 +46,9 @@ class PuzzleIntroActivity : AppCompatActivity() {
 
 
         when (radioButton){
-            easy -> level = 60000
-            medium -> level = 30000
-            hard -> level =  15000
+            easy -> level = 30000
+            medium -> level = 15000
+            hard -> level =  10000
         }
 
         return level

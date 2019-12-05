@@ -39,8 +39,8 @@ class RoadTripActivity : AppCompatActivity() {
     val countDownInterval: Long = 1000
 
     //plays alarm time's up
-    lateinit var uri : Uri
-    lateinit var ringtone : Ringtone
+    /*lateinit var uri : Uri
+    lateinit var ringtone : Ringtone*/
 
     var gameStarted = false
     var gameOverResponse = false //set to lose
@@ -293,9 +293,9 @@ class RoadTripActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
-                ringtone = RingtoneManager.getRingtone(getApplicationContext(), uri)
-                ringtone.play()
+                //uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
+                //ringtone = RingtoneManager.getRingtone(getApplicationContext(), uri)
+                //ringtone.play()
                 checkScore()
                 endGame(gameOverResponse)
             }
@@ -354,7 +354,7 @@ class RoadTripActivity : AppCompatActivity() {
         }
 
         endButton.setOnClickListener {
-            ringtone.stop()
+            //ringtone.stop()
             startActivity(intent)
             finish()
         }
